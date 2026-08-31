@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-30T00:00:00.000Z",
+  "generatedAt": "2026-08-31T00:00:00.000Z",
   "title": "Design System: Akshay Pimprikar Portfolio",
   "extensions": {
     "colorMeta": {
@@ -21,7 +21,7 @@
         "displayName": "Panel Black",
         "canonical": "#111114",
         "tonalRamp": [],
-        "note": "Declared as --bg2 in :root but not applied to any surface in the shipped pages as of this scan — dormant, not an active layering rule."
+        "note": "Declared as --bg2 in :root but not applied to any surface in the three shipped pages (home, about, work/*) as of this scan — dormant, not an active layering rule."
       },
       "paper-white": {
         "role": "neutral",
@@ -44,23 +44,22 @@
     },
     "typographyMeta": {
       "display": { "displayName": "Display", "purpose": "Home page h1 only — the single most important surface, 74px ceiling." },
-      "display-secondary": { "displayName": "Display Secondary", "purpose": "h1 shared identically by every content/case-study page (Apps, pragma, FinanceTracker), 60px ceiling." },
-      "display-tertiary": { "displayName": "Display Tertiary", "purpose": "About page h1, the densest reading surface, 52px ceiling." },
+      "display-secondary": { "displayName": "Display Secondary", "purpose": "h1 shared identically by the two case-study pages (pragma, FinanceTracker), 60px ceiling." },
+      "display-tertiary": { "displayName": "Display Tertiary", "purpose": "About page h1, the site's long-form reading surface, 52px ceiling." },
       "headline": { "displayName": "Headline", "purpose": "In-page section headers (h2)." },
-      "title": { "displayName": "Title", "purpose": "Card and component titles: case-study h3, decision h3, app/role names, the brand wordmark." },
-      "body": { "displayName": "Body", "purpose": "Primary paragraph copy: page subheads and long-form 'what it proves' sections." },
-      "small": { "displayName": "Small", "purpose": "Secondary card copy, inline links, stat lines, read-more affordances." },
-      "micro": { "displayName": "Micro", "purpose": "Timeline year labels and pipeline stage numbers. Verified 400 weight (inherited, no explicit font-weight set) — corrected from an earlier 600 claim. The 'Human approval' badge is a separate, deliberately more emphatic 600/uppercase treatment, not this token." },
-      "label": { "displayName": "Label", "purpose": "Nav links and footer links only. No eyebrow/kicker role exists in this system (banned sitewide during finish review)." }
+      "title": { "displayName": "Title", "purpose": "Card and component titles: case-study h3, decision h3, pipeline-stage name, app name, app category headline." },
+      "body": { "displayName": "Body", "purpose": "Primary paragraph copy: page subheads, 'what it proves' sections, and About-page long-form prose." },
+      "small": { "displayName": "Small", "purpose": "Secondary card copy, inline links, stat lines, read-more affordances, technical-skill row text, footer copyright line." },
+      "micro": { "displayName": "Micro", "purpose": "Pipeline-stage numbers on the pragma page. Verified 400 weight (inherited, no explicit font-weight set). The 'Human approval' badge is a separate, deliberately more emphatic 600/uppercase treatment, not this token." },
+      "label": { "displayName": "Label", "purpose": "Header nav links only. No eyebrow/kicker role exists in this system (banned sitewide during finish review). The footer no longer carries a link list; it is copyright-only, set at Small." }
     },
     "shadows": [
-      { "name": "accent-glow", "value": "0 0 0 4px rgba(201,161,90,.18)", "purpose": "Focused halo around the career timeline's 'now' marker dot." },
-      { "name": "icon-lift", "value": "0 2px 10px rgba(0,0,0,.35)", "purpose": "Grounds a small raster app icon against a flat card." },
+      { "name": "icon-lift", "value": "0 2px 10px rgba(0,0,0,.35)", "purpose": "Grounds a small raster app icon image against a flat card in the homepage Shipped Apps grid." },
       { "name": "cta-hover", "value": "0 6px 20px rgba(201,161,90,.25)", "purpose": "Resume button hover state — the one 'about to be pressed' shadow in the system." },
       { "name": "glass-highlight", "value": "inset 0 1px 0 rgba(255,255,255,.05)", "purpose": "Soft top edge catch-light on every glass card, so the translucency reads even where the ground behind it is close to flat." }
     ],
     "motion": [
-      { "name": "ease-supporting", "value": "cubic-bezier(.16,1,.3,1)", "purpose": "Calm exponential ease-out for the general .fade-in entrance (paragraphs, cards, nav). Pure decelerate, no overshoot — the detector flags bounce/elastic curves as dated, so differentiation from the signature curve is speed/distance/scale, not literal spring physics." },
+      { "name": "ease-supporting", "value": "cubic-bezier(.16,1,.3,1)", "purpose": "Calm exponential ease-out for the general .fade-in entrance (paragraphs, cards, nav, images). Pure decelerate, no overshoot — differentiation from the signature curve is speed/distance/scale, not literal spring physics." },
       { "name": "ease-signature", "value": "cubic-bezier(.19,1,.22,1)", "purpose": "Faster, steeper exponential ease-out reserved for .spring-in, applied only to each page's h1 — paired with a larger 30px rise and a .95→1 scale for a genuinely distinct, punchier arrival than supporting content, without bounce." }
     ],
     "breakpoints": [
@@ -74,7 +73,7 @@
       "name": "Focus State",
       "kind": "custom",
       "refersTo": "focus-visible",
-      "description": "Keyboard-focus outline for every link and button, added during the finish/polish pass — previously the unstyled browser default. Mouse clicks never trigger it (:focus-visible only).",
+      "description": "Keyboard-focus outline for every link and button. Mouse clicks never trigger it (:focus-visible only).",
       "html": "<a class=\"ds-focus-demo\" href=\"#\">Read the case study</a>",
       "css": ".ds-focus-demo:focus-visible { outline: 2px solid #C9A15A; outline-offset: 3px; border-radius: 2px; }"
     },
@@ -90,9 +89,9 @@
       "name": "Static Card",
       "kind": "card",
       "refersTo": "card",
-      "description": "Default glass card for decorative, non-clickable content (timeline eras, pipeline stages, architecture decisions). No hover state — the absence of interactivity is the point.",
-      "html": "<div class=\"ds-card\"><div class=\"ds-card-label\">2024 — Present</div><div class=\"ds-card-title\">Freelance</div><div class=\"ds-card-body\">pragma · FinanceTracker · agentic pipeline</div></div>",
-      "css": ".ds-card { border-radius: 14px; background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.09); backdrop-filter: blur(14px) saturate(1.3); box-shadow: inset 0 1px 0 rgba(255,255,255,.05); padding: 20px 18px; } .ds-card-label { font-size: 11px; color: #8A8A92; letter-spacing: .05em; } .ds-card-title { font-size: 16px; font-weight: 600; color: #F2F2F0; margin-top: 6px; } .ds-card-body { font-size: 13px; color: #8A8A92; margin-top: 6px; line-height: 1.4; }"
+      "description": "Default glass card for decorative, non-clickable content (pipeline stages, architecture decisions). No hover state — the absence of interactivity is the point.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-label\">01</div><div class=\"ds-card-title\">spec</div><div class=\"ds-card-body\">The user reviews the spec and approves it.</div></div>",
+      "css": ".ds-card { border-radius: 14px; background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.09); backdrop-filter: blur(14px) saturate(1.3); box-shadow: inset 0 1px 0 rgba(255,255,255,.05); padding: 18px 16px; } .ds-card-label { font-size: 11px; color: #8A8A92; } .ds-card-title { font-size: 16px; font-weight: 600; color: #F2F2F0; margin-top: 6px; } .ds-card-body { font-size: 13px; color: #8A8A92; margin-top: 6px; line-height: 1.4; }"
     },
     {
       "name": "Interactive Card",
@@ -106,28 +105,45 @@
       "name": "Nav Link",
       "kind": "nav",
       "refersTo": "nav-link",
-      "description": "Header navigation item — three states: rest, hover, active (aria-current).",
-      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#\">Career</a><a class=\"ds-nav-link is-active\" aria-current=\"page\" href=\"#\">Apps</a></nav>",
-      "css": ".ds-nav { display: flex; gap: 22px; } .ds-nav-link { font-size: 12px; color: #8A8A92; text-decoration: none; letter-spacing: .01em; transition: color .25s ease; padding: 10px 2px; } .ds-nav-link:hover { color: #F2F2F0; } .ds-nav-link.is-active { color: #C9A15A; }"
+      "description": "Header navigation item — three states: rest, hover, active (aria-current). The nav is now the site's only link list (About Me, Resume, LinkedIn, Email, GitHub); the footer carries no links.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#\">About Me</a><a class=\"ds-nav-link is-active\" aria-current=\"page\" href=\"#\">Resume</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 22px; } .ds-nav-link { font-size: 12px; color: #8A8A92; text-decoration: none; letter-spacing: .01em; transition: color .25s ease; padding: 14px 2px; } .ds-nav-link:hover { color: #F2F2F0; } .ds-nav-link.is-active { color: #C9A15A; }"
+    },
+    {
+      "name": "Brand Mark",
+      "kind": "custom",
+      "refersTo": "brand",
+      "description": "Header logo — a 32×32 image badge (/favicon.svg), replacing a former text wordmark. Lifts 1px on hover using the supporting-motion easing.",
+      "html": "<a class=\"ds-brand\" href=\"#\"><img src=\"/favicon.svg\" width=\"32\" height=\"32\" alt=\"\" /></a>",
+      "css": ".ds-brand { display: inline-flex; padding: 4px 0; line-height: 0; } .ds-brand img { display: block; transition: transform .25s cubic-bezier(.16,1,.3,1); } .ds-brand:hover img { transform: translateY(-1px); }"
+    },
+    {
+      "name": "Evidence Image (case thumbnail / session / screenshot gallery)",
+      "kind": "custom",
+      "refersTo": "photographic-evidence",
+      "description": "Shared shape language for all three real-image patterns on the site: home-page case thumbnails (16:9), the pragma session capture (native ratio), and the FinanceTracker screenshot gallery (368:800, 4-up grid).",
+      "html": "<div class=\"ds-shots\"><img src=\"#\" alt=\"\" /><img src=\"#\" alt=\"\" /><img src=\"#\" alt=\"\" /><img src=\"#\" alt=\"\" /></div>",
+      "css": ".ds-shots { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; } .ds-shots img { width: 100%; height: auto; aspect-ratio: 368/800; object-fit: cover; border-radius: 14px; border: 1px solid rgba(255,255,255,.09); display: block; }"
     },
     {
       "name": "Section Headline",
       "kind": "custom",
       "refersTo": "headline",
-      "description": "The h2 used to label a group of cards (e.g. 'Case studies', or an Apps-page category like 'Fintech'). Plain sentence case at the Headline step — replaced the old uppercase-kicker 'section label' pattern, which violated the No-Kicker Rule and was removed sitewide during finish review.",
+      "description": "The h2 used to label a group of cards (e.g. 'Case studies', 'Shipped apps', 'The pipeline'). Plain sentence case at the Headline step — no uppercase-kicker pattern.",
       "html": "<h2 class=\"ds-section-headline\">Case studies</h2>",
       "css": ".ds-section-headline { font-size: 20px; font-weight: 600; letter-spacing: -.01em; color: #F2F2F0; margin: 0 0 18px; }"
     }
   ],
   "narrative": {
     "northStar": "The Restrained Native Craft",
-    "overview": "This system exists to make one claim credible: that the work behind it is real, current, and production-grade — not a template dressed up for a job search. Every visual decision serves legibility and verification first. The palette stays almost entirely neutral (near-black ground, off-white text, muted ash for secondary content) with exactly one warm accent, spent with discipline rather than scattered for energy. Where the system reaches for personality, it reaches toward the subject's own world — SF Pro as the display and body face throughout, because the person this site represents builds native Apple software, not because it is a safe default. The direction was chosen through three real rounds of iteration: round one (flat hero + plain grid) was rejected as static and boring; round two (fluorescent poster, drum-machine sequencer, notation score) was rejected as too provocative for a senior hiring audience. What survived is the middle register: quiet enough to trust, specific enough to remember.",
+    "overview": "This system exists to make one claim credible: that the work behind it is real, current, and production-grade — not a template dressed up for a job search. Every visual decision serves legibility and verification first. The palette stays almost entirely neutral (near-black ground, off-white text, muted ash for secondary content) with exactly one warm accent, spent with discipline rather than scattered for energy. Where the system reaches for personality, it reaches toward the subject's own world — SF Pro as the display and body face throughout, because the person this site represents builds native Apple software, not because it is a safe default. The direction was chosen through three real rounds of iteration: round one (flat hero + plain grid) was rejected as static and boring; round two (fluorescent poster, drum-machine sequencer, notation score) was rejected as too provocative for a senior hiring audience. What survived is the middle register: quiet enough to trust, specific enough to remember. The site was restructured twice after the direction shipped: the homepage era-timeline and its standalone Career page were removed (the career narrative now lives as prose on the renamed About page), the standalone Apps page folded into a homepage 'Shipped apps' section, the footer was stripped to copyright-only with every link moved to the header nav, and the header brand changed from a text wordmark to an image badge.",
     "keyCharacteristics": [
       "Near-black ground with exactly one warm accent color, never a second competing hue",
       "Glass-material cards (translucent tint + blur) instead of drop-shadow elevation",
       "SF Pro system stack throughout — no imported display face",
       "Two-tier exponential entrance motion on load (calm for supporting content, faster+scaled for each page's h1); no bounce/overshoot, no ambient or decorative animation at rest",
-      "Hover affordance reserved strictly for elements that are actually clickable"
+      "Hover affordance reserved strictly for elements that are actually clickable",
+      "Real evidence over illustration: every image on the site is a real screenshot or a real captured session"
     ],
     "rules": [
       { "name": "The One Accent Rule", "body": "Antique Gold is the only chromatic color in the system. Every other value is a neutral. A new element earns Antique Gold or it stays neutral.", "section": "colors" },
@@ -143,6 +159,7 @@
       "Do use the glass-card treatment as the default for any new card; reach for a shadow only for a named purpose",
       "Do add the .interactive modifier only to elements that are real links or buttons",
       "Do collapse every new responsive grid at exactly 900px and 560px",
+      "Do use real screenshots or real captured sessions for any evidentiary image, with the standard 14px radius + Hairline border",
       "Do keep every claim on the page backed by a real, checkable link or fact"
     ],
     "donts": [
@@ -150,7 +167,8 @@
       "Don't add a drop-shadow as a default elevation device",
       "Don't give a static, non-clickable card a hover state",
       "Don't import a second typeface",
-      "Don't add an eyebrow or kicker above a heading, ever, for any brief"
+      "Don't add an eyebrow or kicker above a heading, ever, for any brief",
+      "Don't put a link list back in the footer — the nav is the system's one and only link surface"
     ]
   }
 }
