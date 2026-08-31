@@ -25,10 +25,14 @@ const groups = categoryOrder
       across fintech, healthcare, and consumer — currently building an autonomous agentic pipeline
       that ships real software end to end.
     </p>
-    <a class="resume-cta fade-in" style="animation-delay:.42s" href="/Akshay-Pimprikar-Resume.pdf" target="_blank" rel="noopener">
-      Download resume →
-    </a>
-    <p class="personal-note fade-in" style="animation-delay:.46s">Outside of shipping, I'm probably cooking, chasing my kid around, or debugging a home-lab project that definitely didn't need fixing. <a href="/about">More about me →</a></p>
+    <div class="hero-ctas fade-in" style="animation-delay:.42s">
+      <a class="resume-cta" href="/Akshay-Pimprikar-Resume.pdf" target="_blank" rel="noopener">
+        Download resume →
+      </a>
+      <a class="about-cta" href="/about">
+        About me →
+      </a>
+    </div>
   </section>
 
   <section class="cases fade-in" style="animation-delay:.5s">
@@ -103,13 +107,15 @@ const groups = categoryOrder
   .hero{padding-top:9vh;}
   h1{font-size:clamp(40px,6vw,74px); font-weight:600; letter-spacing:-.02em; line-height:1.02; margin:14px 0 0;}
   .role{font-size:15px; color:var(--dim); font-weight:400; max-width:560px; margin:20px 0 0; line-height:1.5;}
-  .resume-cta{display:inline-block; margin-top:26px; padding:11px 20px; border-radius:8px;
+  .hero-ctas{display:flex; flex-wrap:wrap; gap:12px; margin-top:26px;}
+  .resume-cta{display:inline-block; padding:11px 20px; border-radius:8px;
     background:var(--accent); color:var(--bg); font-size:13px; font-weight:600; text-decoration:none;
     transition:transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s ease;}
   .resume-cta:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,161,90,.25);}
-  .personal-note{font-size:13px; color:var(--dim); max-width:560px; margin:22px 0 0; line-height:1.6;}
-  .personal-note a{color:var(--accent); text-decoration:none;}
-  .personal-note a:hover{text-decoration:underline;}
+  .about-cta{display:inline-block; padding:11px 20px; border-radius:8px; border:1px solid var(--line);
+    color:var(--ink); font-size:13px; font-weight:600; text-decoration:none;
+    transition:border-color .25s ease, transform .25s cubic-bezier(.16,1,.3,1);}
+  .about-cta:hover{border-color:var(--accent); transform:translateY(-1px);}
 
   .cases{margin-top:9vh; display:grid; grid-template-columns:1fr 1fr; gap:20px; position:relative;}
   .section-headline{grid-column:1 / -1; font-size:20px; font-weight:600; letter-spacing:-.01em; color:var(--ink); margin:0 0 6px;}
