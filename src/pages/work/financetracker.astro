@@ -39,10 +39,10 @@ const schema = {
 
   <section class="screenshots fade-in" style="animation-delay:.45s">
     <div class="shots">
-      <img src="/case-thumbs/financetracker-dashboard.jpg" alt="FinanceTracker dashboard: net worth, monthly spend, and budget summary" loading="lazy" width="368" height="800" />
-      <img src="/case-thumbs/financetracker-transactions.jpg" alt="FinanceTracker transaction list by payee, category, and amount" loading="lazy" width="368" height="800" />
-      <img src="/case-thumbs/financetracker-budgets.jpg" alt="FinanceTracker budgets by category with progress bars" loading="lazy" width="368" height="800" />
-      <img src="/case-thumbs/financetracker-accounts.jpg" alt="FinanceTracker accounts: checking, savings, and credit card rolling up to net worth" loading="lazy" width="368" height="800" />
+      <figure><img src="/case-thumbs/financetracker-dashboard.jpg" alt="FinanceTracker dashboard: net worth, monthly spend, and budget summary" loading="lazy" width="368" height="800" /><figcaption>Dashboard</figcaption></figure>
+      <figure><img src="/case-thumbs/financetracker-transactions.jpg" alt="FinanceTracker transaction list by payee, category, and amount" loading="lazy" width="368" height="800" /><figcaption>Transactions</figcaption></figure>
+      <figure><img src="/case-thumbs/financetracker-budgets.jpg" alt="FinanceTracker budgets by category with progress bars" loading="lazy" width="368" height="800" /><figcaption>Budgets</figcaption></figure>
+      <figure><img src="/case-thumbs/financetracker-accounts.jpg" alt="FinanceTracker accounts: checking, savings, and credit card rolling up to net worth" loading="lazy" width="368" height="800" /><figcaption>Accounts</figcaption></figure>
     </div>
   </section>
 
@@ -67,6 +67,7 @@ const schema = {
       one of those constraints was enforced automatically by <a href="/work/pragma">pragma</a>'s
       gates stage before a human ever reviewed the code.
     </p>
+    <p class="cta">Want to see the gate output itself, or talk through an architecture decision? Reach me at <a href="mailto:akshaypimprikar@gmail.com">akshaypimprikar@gmail.com</a>.</p>
   </section>
 </BaseLayout>
 
@@ -83,7 +84,9 @@ const schema = {
 
   .screenshots{margin-top:6vh; max-width:1000px;}
   .shots{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .shots figure{margin:0;}
   .shots img{width:100%; height:auto; aspect-ratio:368/800; object-fit:cover; border-radius:14px; border:1px solid var(--line); display:block;}
+  .shots figcaption{font-size:12px; color:var(--dim); margin-top:8px; text-align:center;}
 
   h2{font-size:20px; font-weight:600; letter-spacing:-.01em; margin:0 0 22px;}
   .decisions{margin-top:8vh;}
@@ -93,7 +96,8 @@ const schema = {
   .decision p{font-size:13px; color:var(--dim); line-height:1.6; margin:0;}
 
   .detail{margin-top:8vh; padding-bottom:10vh;}
-  .detail p{font-size:15px; color:var(--dim); line-height:1.75; max-width:720px; margin:0;}
+  .detail p{font-size:15px; color:var(--dim); line-height:1.75; max-width:560px; margin:0 0 18px;}
+  .detail .cta{color:var(--ink); margin-bottom:0;}
 
   @media (max-width: 900px){ .shots{grid-template-columns:1fr 1fr;} }
   @media (max-width: 560px){ .grid{grid-template-columns:1fr;} }
