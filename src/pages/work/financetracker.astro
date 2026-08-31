@@ -1,0 +1,86 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const decisions = [
+  { title: "MVVM + Repository", body: "ViewModels depend on repository protocols, never concrete SwiftData implementations. Domain Services carry zero SwiftData imports — 100% unit-testable without a simulator." },
+  { title: "@ModelActor CSV import", body: "CSV import moved off the main actor entirely: DTO value-type transfer (no @Model instances crossing the actor boundary), chunks of 300 records saved concurrently via a TaskGroup, an observable progress value updated as each chunk completes, and clean cancellation support." },
+  { title: "VersionedSchema + MigrationPlan", body: "Schema wrapped in VersionedSchema from day one, before any migration was needed — so a bridge-version strategy and importHash backfill are possible without breaking CSV dedup on existing rows." },
+  { title: "Decimal, never Double", body: "Every money value in the app is Decimal. Double's binary floating-point representation is unacceptable for currency math in a finance app." },
+  { title: "MCP build diagnostics", body: "Structured JSON build errors replace text-parsed Xcode output, so the pipeline's agents get reliable, machine-readable failure data instead of scraping console text." },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "FinanceTracker",
+  "description": "A production-grade personal finance app built with SwiftUI and SwiftData, developed end to end by the pragma agentic pipeline.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "iOS",
+  "url": "https://akshaypimprikar.dev/work/financetracker",
+  "sameAs": "https://github.com/akshaypimprikar/financetracker-ios",
+  "author": {
+    "@type": "Person",
+    "name": "Akshay Pimprikar",
+    "url": "https://akshaypimprikar.dev",
+  },
+};
+---
+<BaseLayout title="FinanceTracker" description="A production SwiftUI + SwiftData iOS app, built entirely by the pragma pipeline." schema={schema} ogImage="/og/financetracker.png">
+  <section class="head">
+    <h1 class="spring-in">FinanceTracker</h1>
+    <p class="sub fade-in" style="animation-delay:.2s">
+      A production-grade personal finance app — SwiftUI + SwiftData, built end to end by <a href="/work/pragma">pragma</a>, the 8-agent pipeline. Users track spending across accounts,
+      set monthly budgets per category, and import transactions from CSV.
+    </p>
+    <div class="links fade-in" style="animation-delay:.4s">
+      <a href="https://github.com/akshaypimprikar/financetracker-ios" target="_blank" rel="noopener">View on GitHub →</a>
+    </div>
+  </section>
+
+  <section class="decisions fade-in" style="animation-delay:.5s">
+    <h2>Architecture decisions</h2>
+    <div class="grid">
+      {decisions.map((d, i) => (
+        <div class="decision glass-card" style={`animation-delay:${0.6 + i * 0.06}s`}>
+          <h3>{d.title}</h3>
+          <p>{d.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="detail fade-in" style="animation-delay:1s">
+    <h2>What it proves</h2>
+    <p>
+      This isn't a toy CRUD demo — it's a real app with the constraints that make finance software
+      hard: money math that can't round wrong, CSV dedup that survives a schema migration, and a
+      concurrency model that keeps a large import off the UI thread without corrupting state. Every
+      one of those constraints was enforced automatically by <a href="/work/pragma">pragma</a>'s
+      gates stage before a human ever reviewed the code.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .head, .decisions, .detail{padding:0 6vw; max-width:1000px; margin:0 auto;}
+  .head{padding-top:9vh;}
+  h1{font-size:clamp(36px,5.5vw,60px); font-weight:600; letter-spacing:-.02em; margin:14px 0 0;}
+  .sub{font-size:15px; color:var(--dim); max-width:660px; margin:18px 0 0; line-height:1.6;}
+  .sub a, .detail a{color:var(--accent); text-decoration:none;}
+  .sub a:hover, .detail a:hover{text-decoration:underline;}
+  .links{margin-top:20px;}
+  .links a{font-size:13px; color:var(--accent); text-decoration:none;}
+  .links a:hover{text-decoration:underline;}
+
+  h2{font-size:20px; font-weight:600; letter-spacing:-.01em; margin:0 0 22px;}
+  .decisions{margin-top:8vh;}
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .decision{padding:22px 22px 20px;}
+  .decision h3{font-size:16px; font-weight:600; margin:0 0 8px;}
+  .decision p{font-size:13px; color:var(--dim); line-height:1.6; margin:0;}
+
+  .detail{margin-top:8vh; padding-bottom:10vh;}
+  .detail p{font-size:15px; color:var(--dim); line-height:1.75; max-width:720px; margin:0;}
+
+  @media (max-width: 560px){ .grid{grid-template-columns:1fr;} }
+</style>

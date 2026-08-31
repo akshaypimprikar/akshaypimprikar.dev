@@ -1,0 +1,174 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  schema?: Record<string, unknown>;
+  ogImage?: string;
+}
+const { title, description = "Lead iOS Engineer — 12+ years shipping production mobile software.", schema, ogImage = "/og-image.png" } = Astro.props;
+const nav = [
+  { href: "/", label: "Home" },
+  { href: "/career", label: "Career" },
+  { href: "/work/pragma", label: "pragma" },
+  { href: "/work/financetracker", label: "FinanceTracker" },
+  { href: "/apps", label: "Apps" },
+];
+const SITE_URL = "https://akshaypimprikar.dev";
+const pageUrl = new URL(Astro.url.pathname, SITE_URL).toString();
+const ogImageUrl = new URL(ogImage, SITE_URL).toString();
+const fullTitle = title === "Home" ? "Akshay Pimprikar — Lead iOS Engineer" : `${title} — Akshay Pimprikar`;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={pageUrl} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Akshay Pimprikar" />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={pageUrl} />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageUrl} />
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema ?? {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "dateCreated": "2026-08-28",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Akshay Pimprikar",
+      "jobTitle": "Lead iOS Engineer",
+      "url": SITE_URL,
+      "sameAs": [
+        "https://linkedin.com/in/akshaypimprikar",
+        "https://github.com/akshaypimprikar",
+      ],
+      "description": "Lead iOS Engineer with 12+ years shipping production mobile software for 1M-20M users across fintech, healthcare, and consumer. Building pragma, an 8-agent agentic iOS development pipeline.",
+    },
+  })} />
+</head>
+<body>
+  <!--
+    THESIS: A career read as evidence, not a resume restated — restraint and one accent make credibility the point, not decoration.
+    OWN-WORLD: Near-black ground, warm gold accent used sparingly, translucent glass cards with visible blur + inner highlight, SF Pro throughout, two-tier exponential entrance motion (calm for content, fast+scaled for each page's h1) — no bounce/overshoot, no drenched color. No eyebrow/kicker anywhere; headings carry their own weight.
+    STORY: A hiring manager sees a real career timeline, real shipped apps, and two real engineering case studies, and believes this is verifiable production work, not a template.
+    FIRST VIEWPORT: Name + role statement top-left, no eyebrow above it; a horizontal five-era timeline in glass cards below; two case-study cards beneath that; footer links last.
+    FORM: Restrained Native Craft — synthesized after three rounds (seed key 189d83c7): "static/boring," then "provocative," then user-approved as the middle register.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+  -->
+  <div class="chrome-bg" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="/">Akshay Pimprikar</a>
+    <nav>
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          class={Astro.url.pathname === item.href ? "active" : ""}
+          aria-current={Astro.url.pathname === item.href ? "page" : undefined}
+        >{item.label}</a>
+      ))}
+    </nav>
+  </header>
+  <main>
+    <slot />
+  </main>
+  <footer class="site-footer">
+    <div class="foot-links">
+      <a href="/Akshay-Pimprikar-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="https://linkedin.com/in/akshaypimprikar" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:akshaypimprikar@gmail.com">Email</a>
+      <a href="https://github.com/akshaypimprikar" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/akshaypimprikar/pragma" target="_blank" rel="noopener">GitHub — pragma</a>
+      <a href="https://github.com/akshaypimprikar/financetracker-ios" target="_blank" rel="noopener">GitHub — FinanceTracker</a>
+    </div>
+    <div class="foot-meta">&copy; {new Date().getFullYear()} Akshay Pimprikar</div>
+  </footer>
+
+<style is:global>
+  :root{
+    --bg:#0A0A0C; --bg2:#111114; --ink:#F2F2F0; --dim:#8A8A92; --line:rgba(255,255,255,.09);
+    --accent:#C9A15A; --glass:rgba(255,255,255,.055);
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+  }
+  *{box-sizing:border-box; min-width:0;}
+  html,body{margin:0;padding:0}
+  h1,h2,h3,p,a,div{overflow-wrap:break-word;}
+  body{
+    background:var(--bg); color:var(--ink); font-family:var(--font);
+    position:relative; min-height:100vh; overflow-x:hidden;
+  }
+  .chrome-bg{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background:
+      radial-gradient(700px 420px at 18% -8%, rgba(201,161,90,.10), transparent 60%),
+      radial-gradient(900px 500px at 90% 10%, rgba(120,140,255,.06), transparent 60%);
+  }
+  main{position:relative; z-index:1;}
+  a{color:inherit}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px;}
+
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+  .fade-in{opacity:0;animation:rise .8s cubic-bezier(.16,1,.3,1) forwards;}
+
+  @keyframes signature-rise{from{opacity:0;transform:translateY(30px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);}}
+  .spring-in{opacity:0;animation:signature-rise .6s cubic-bezier(.19,1,.22,1) .1s forwards;}
+
+  .site-header{
+    position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between;
+    padding:22px 6vw; border-bottom:1px solid var(--line); flex-wrap:wrap; row-gap:12px;
+  }
+  .site-header .brand{font-size:16px; font-weight:600; text-decoration:none; letter-spacing:-.01em; padding:4px 0;}
+  .site-header nav{display:flex; flex-wrap:wrap; gap:4px 22px;}
+  .site-header nav a{
+    font-size:12px; color:var(--dim); text-decoration:none; letter-spacing:.01em; transition:color .25s ease;
+    padding:10px 2px; display:inline-flex; align-items:center; min-height:24px;
+  }
+  .site-header nav a:hover, .site-header nav a.active{color:var(--ink);}
+  .site-header nav a.active{color:var(--accent);}
+
+  .site-footer{
+    position:relative; z-index:1; margin-top:80px; padding:36px 6vw 44px; border-top:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
+  }
+  .foot-links{display:flex; gap:8px 24px; flex-wrap:wrap;}
+  .foot-links a{
+    font-size:12px; color:var(--dim); text-decoration:none; border-bottom:1px solid transparent;
+    transition:color .25s, border-color .25s; padding:10px 2px; display:inline-flex; align-items:center; min-height:24px;
+  }
+  .foot-links a:hover{color:var(--ink); border-color:var(--accent);}
+  .foot-meta{font-size:12px; color:var(--dim);}
+
+  .glass-card{
+    border-radius:14px; background:var(--glass); border:1px solid var(--line);
+    backdrop-filter:blur(14px) saturate(1.3); -webkit-backdrop-filter:blur(14px) saturate(1.3);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+  }
+  .glass-card.interactive{transition:border-color .4s ease, transform .5s cubic-bezier(.16,1,.3,1), background .4s ease;}
+  .glass-card.interactive:hover{border-color:rgba(201,161,90,.4); transform:translateY(-3px); background:rgba(255,255,255,.06);}
+
+  @media (prefers-reduced-motion: reduce){
+    .fade-in, .spring-in{animation:none !important; opacity:1 !important; transform:none !important;}
+    .glass-card.interactive:hover{transform:none;}
+    *{scroll-behavior:auto !important;}
+  }
+
+  @media (max-width: 640px){
+    .site-header{padding:18px 6vw;}
+    .site-header nav{gap:4px 16px;}
+  }
+</style>
+</body>
+</html>

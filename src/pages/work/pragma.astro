@@ -1,0 +1,99 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const stages = [
+  { name: "spec", human: true, note: "The user reviews the spec and approves it." },
+  { name: "plan", human: true, note: "The user reviews and approves the implementation plan." },
+  { name: "feature", human: false, note: "Build, simplified per task." },
+  { name: "gates", human: false, note: "Deterministic checks: build, tests, coverage, layer rules." },
+  { name: "review", human: false, note: "Correctness and simplification review, auto-chained." },
+  { name: "test", human: false, note: "Test suite run and verified." },
+  { name: "bugfix", human: false, note: "Recovery loop when something breaks." },
+  { name: "release", human: false, note: "Ships once merged — the user merges every PR themselves." },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "pragma",
+  "description": "An 8-agent iOS development pipeline built on Claude Code, automating the full feature lifecycle from spec to release. Human approval only at spec and plan; everything else runs autonomously until merge.",
+  "codeRepository": "https://github.com/akshaypimprikar/pragma",
+  "url": "https://akshaypimprikar.dev/work/pragma",
+  "author": {
+    "@type": "Person",
+    "name": "Akshay Pimprikar",
+    "url": "https://akshaypimprikar.dev",
+  },
+};
+---
+<BaseLayout title="pragma" description="An 8-agent iOS development pipeline, spec through release." schema={schema} ogImage="/og/pragma.png">
+  <section class="head">
+    <h1 class="spring-in">pragma</h1>
+    <p class="sub fade-in" style="animation-delay:.2s">
+      An 8-agent iOS development pipeline built on Claude Code, automating the full feature lifecycle
+      from spec to release. Two stages require human approval; the rest run autonomously until merge.
+    </p>
+    <div class="links fade-in" style="animation-delay:.4s">
+      <a href="https://github.com/akshaypimprikar/pragma" target="_blank" rel="noopener">View on GitHub →</a>
+    </div>
+  </section>
+
+  <section class="pipeline fade-in" style="animation-delay:.5s">
+    <h2>The pipeline</h2>
+    <div class="stages">
+      {stages.map((s, i) => (
+        <div class={`stage glass-card ${s.human ? "human" : ""}`} style={`animation-delay:${0.6 + i * 0.05}s`}>
+          <div class="n">{String(i + 1).padStart(2, "0")}</div>
+          <div class="name">{s.name}</div>
+          {s.human && <div class="tag">Human approval</div>}
+          <p>{s.note}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="detail fade-in" style="animation-delay:.9s">
+    <h2>What it proves</h2>
+    <p>
+      Every stage produces a real artifact — a spec document, a plan, a pull request, a passing test suite —
+      not just a chat transcript. Gates run deterministic checks (build, tests, coverage threshold, layer-rule
+      compliance) before any code reaches a human reviewer. A persistent memory layer carries decisions across
+      stages, so a call made in spec isn't re-litigated in review, and a bug caught in one feature doesn't
+      repeat in the next.
+    </p>
+    <p>
+      pragma built <a href="/work/financetracker">FinanceTracker</a> — a real, production-grade SwiftUI +
+      SwiftData app — end to end. A SwiftData testing skill extracted from this pipeline's real bugs was <a href="https://github.com/twostraws/Swift-Agent-Skills/pull/21" target="_blank" rel="noopener">contributed to Swift-Agent-Skills</a>,
+      the agent-skills directory maintained by Paul Hudson, founder of Hacking with Swift, and pragma itself is <a href="https://www.claudedirectory.org/plugins/pragma" target="_blank" rel="noopener">published to the Claude Code Directory</a>.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .head, .pipeline, .detail{padding:0 6vw; max-width:1000px; margin:0 auto;}
+  .head{padding-top:9vh;}
+  h1{font-size:clamp(36px,5.5vw,60px); font-weight:600; letter-spacing:-.02em; margin:14px 0 0;}
+  .sub{font-size:15px; color:var(--dim); max-width:620px; margin:18px 0 0; line-height:1.6;}
+  .links{margin-top:20px;}
+  .links a{font-size:13px; color:var(--accent); text-decoration:none;}
+  .links a:hover{text-decoration:underline;}
+
+  h2{font-size:20px; font-weight:600; letter-spacing:-.01em; margin:0 0 22px;}
+  .pipeline{margin-top:8vh;}
+  .stages{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
+  .stage{padding:18px 16px; position:relative;}
+  .stage .n{font-size:11px; color:var(--dim); font-variant-numeric:tabular-nums;}
+  .stage .name{font-size:16px; font-weight:600; margin-top:6px; text-transform:lowercase;}
+  .stage p{font-size:13px; color:var(--dim); margin:8px 0 0; line-height:1.5;}
+  .stage.human{border-color:rgba(201,161,90,.4);}
+  .stage .tag{display:inline-block; margin-top:6px; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); font-weight:600;}
+
+  .detail{margin-top:8vh; padding-bottom:10vh;}
+  .detail p{font-size:15px; color:var(--dim); line-height:1.75; max-width:720px; margin:0 0 18px;}
+  .detail em{color:var(--ink); font-style:normal;}
+  .detail a{color:var(--accent); text-decoration:none;}
+  .detail a:hover{text-decoration:underline;}
+
+  @media (max-width: 900px){ .stages{grid-template-columns:1fr 1fr;} }
+  @media (max-width: 560px){ .stages{grid-template-columns:1fr;} }
+</style>

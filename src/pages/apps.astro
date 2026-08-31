@@ -1,0 +1,120 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const apps = [
+  { name: "myMedidata", co: "Medidata Solutions", stat: "4.7★ · 11M participants", note: "Clinical trial platform, HIPAA-regulated, 1M monthly active users.", icon: "/icons/mymedidata.webp", url: "https://apps.apple.com/us/app/mymedidata/id6443781776", category: "Healthcare" },
+  { name: "CardValet", co: "Fiserv", stat: "5M users · 1,000+ institutions", note: "Consumer fintech app; redesigned it as an Analyst, then led the 10-engineer team as Lead SDE.", icon: "/icons/cardvalet.webp", url: "https://apps.apple.com/us/app/cardvalet/id849898083", category: "Fintech" },
+  { name: "WW", co: "Weight Watchers", stat: "4.8★ · 4.6M users", note: "UI/UX improvements and HealthKit integration during peak growth.", icon: "/icons/ww.webp", url: "https://apps.apple.com/us/app/weightwatchers-program/id331308914", category: "Consumer & Media" },
+  { name: "Miami HEAT Mobile", co: "SapientNitro (client: Miami Heat)", stat: "Games, stats, in-arena wallet", note: "Built while at SapientNitro: game tracking, statistics, and an in-app wallet for the Arena.", icon: "/icons/miamiheat.webp", url: "https://apps.apple.com/us/app/miami-heat-mobile/id497407923", category: "Sports" },
+  { name: "Paramount", co: "Viacom", stat: "Best New App — Entertainment", note: "Built the first version in 2014, when it shipped as Spike TV, later rebranded Paramount Network then Paramount+. Same App Store listing, long since rebuilt by other teams.", icon: "/icons/paramount.webp", url: "https://apps.apple.com/us/app/paramount/id530168168", category: "Consumer & Media" },
+  { name: "CVS", co: "CVS Caremark", stat: "ExtraCare feature", note: "Delivered the ExtraCare feature: data persistence for rewards and coupons.", icon: "/icons/cvs.webp", url: "https://apps.apple.com/us/app/cvs/id602716057", category: "Healthcare" },
+  { name: "NYC 311", co: "NYC Dept. of IT & Telecom", stat: "+35% engagement", note: "Official app for non-emergency city services.", icon: "/icons/nyc311.webp", url: "https://apps.apple.com/us/app/nyc-311/id324897619", category: "Consumer & Media" },
+  { name: "Vanguard", co: "The Vanguard Group", stat: "Real-time financial data", note: "Created the Markets Section, displaying real-time financial data.", icon: "/icons/vanguard.webp", url: "https://apps.apple.com/us/app/vanguard-save-invest-retire/id335186209", category: "Fintech" },
+];
+
+const categoryOrder = ["Fintech", "Healthcare", "Consumer & Media", "Sports"];
+const groups = categoryOrder
+  .map((category) => ({ category, items: apps.filter((a) => a.category === category) }))
+  .filter((g) => g.items.length > 0);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Apps shipped by Akshay Pimprikar",
+  "description": "Eight production apps across fintech, healthcare, consumer, and sports, shipped and maintained over 12+ years.",
+  "url": "https://akshaypimprikar.dev/apps",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": apps.map((a, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": a.name,
+        "operatingSystem": "iOS",
+        "applicationCategory": a.category,
+        "url": a.url,
+      },
+    })),
+  },
+};
+---
+<BaseLayout title="Apps" description="Eight shipped apps across fintech, healthcare, consumer, and sports, 12+ years of production iOS." schema={schema} ogImage="/og/apps.png">
+  <section class="head">
+    <h1 class="spring-in">Apps</h1>
+    <p class="sub fade-in" style="animation-delay:.2s">
+      Eight production apps across fintech, healthcare, consumer, and sports —
+      shipped and maintained over 12+ years. Links go to each app's real App Store page.
+    </p>
+  </section>
+
+  {groups.map((group, gi) => (
+    <section class="group">
+      <h2 class="section-headline fade-in" style={`animation-delay:${0.35 + gi * 0.1}s`}>{group.category}</h2>
+      <div class="grid">
+        {group.items.map((a, i) => {
+          const Tag = a.url ? "a" : "div";
+          return (
+            <Tag
+              class={`app glass-card fade-in ${a.url ? "linked interactive" : ""}`}
+              style={`animation-delay:${0.45 + gi * 0.1 + i * 0.06}s`}
+              {...(a.url ? { href: a.url, target: "_blank", rel: "noopener" } : {})}
+            >
+              {a.icon ? (
+                <>
+                  <img
+                    class="icon-img"
+                    src={a.icon}
+                    alt={`${a.name} app icon`}
+                    width="44"
+                    height="44"
+                    loading="lazy"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                  />
+                  <div class="icon icon-fallback" aria-hidden="true">{a.name.slice(0, 2).toUpperCase()}</div>
+                </>
+              ) : (
+                <div class="icon" aria-hidden="true">{a.name.slice(0, 2).toUpperCase()}</div>
+              )}
+              <div class="name">{a.name}</div>
+              <div class="co">{a.co}</div>
+              <div class="stat">{a.stat}</div>
+              <p>{a.note}</p>
+              <div class={`link ${a.url ? "" : "pending"}`}>{a.url ? "View on the App Store →" : "No longer available"}</div>
+            </Tag>
+          );
+        })}
+      </div>
+    </section>
+  ))}
+</BaseLayout>
+
+<style>
+  .head, .group{padding:0 6vw; max-width:1180px; margin:0 auto;}
+  .head{padding-top:9vh;}
+  h1{font-size:clamp(36px,5.5vw,60px); font-weight:600; letter-spacing:-.02em; margin:14px 0 0;}
+  .sub{font-size:15px; color:var(--dim); max-width:600px; margin:18px 0 0; line-height:1.6;}
+
+  .group{margin-top:7vh;}
+  .group:last-of-type{padding-bottom:10vh;}
+  .section-headline{font-size:20px; font-weight:600; letter-spacing:-.01em; color:var(--ink); margin:0 0 18px;}
+  .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .app{padding:24px 22px 20px; display:block; text-decoration:none; color:inherit;}
+  .app.linked .link{color:var(--accent);}
+  .app.linked:hover .link{text-decoration:underline;}
+  .icon{width:44px; height:44px; border-radius:11px; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, rgba(201,161,90,.35), rgba(120,140,255,.18));
+    font-size:16px; font-weight:700; color:var(--ink); margin-bottom:14px;}
+  .icon-fallback{display:none;}
+  .icon-img{width:44px; height:44px; aspect-ratio:1/1; object-fit:cover; border-radius:11px; display:block; margin-bottom:14px;
+    box-shadow:0 2px 10px rgba(0,0,0,.35);}
+  .name{font-size:16px; font-weight:600;}
+  .co{font-size:13px; color:var(--dim); margin-top:2px;}
+  .stat{font-size:13px; color:var(--accent); margin-top:10px; font-weight:600;}
+  .app p{font-size:13px; color:var(--dim); line-height:1.55; margin:8px 0 0;}
+  .link{margin-top:14px; font-size:11px; letter-spacing:.03em; transition:color .25s ease;}
+  .link.pending{color:var(--dim);}
+
+  @media (max-width: 900px){ .grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width: 560px){ .grid{grid-template-columns:1fr;} }
+</style>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><meta charset="utf-8" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:2400px; height:1260px;}
+  .canvas{
+    width:2400px; height:1260px; background:#0A0A0C; position:relative; overflow:hidden;
+    font-family:-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+  }
+  .chrome{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(1100px 700px at 12% -10%, rgba(201,161,90,.14), transparent 60%),
+      radial-gradient(1400px 800px at 92% 6%, rgba(120,140,255,.08), transparent 60%);
+  }
+  .content{position:relative; padding:0 176px;}
+  h1{
+    color:#F2F2F0; font-size:128px; font-weight:600; letter-spacing:-.02em; line-height:1.02;
+    margin-top:420px; max-width:2000px;
+  }
+  p{
+    color:#8A8A92; font-size:44px; font-weight:400; line-height:1.5; margin-top:44px; max-width:1780px;
+  }
+  .foot{
+    position:absolute; left:176px; right:176px; bottom:96px;
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:44px; border-top:1px solid rgba(255,255,255,.09);
+    font-size:32px; color:#8A8A92;
+  }
+  .foot .brand{display:flex; align-items:center; gap:14px;}
+  .foot .dot{width:12px; height:12px; border-radius:50%; background:#C9A15A;}
+</style></head>
+<body>
+  <div class="canvas">
+    <div class="chrome"></div>
+    <div class="content">
+      <h1 id="title"></h1>
+      <p id="subtitle"></p>
+    </div>
+    <div class="foot">
+      <div class="brand"><div class="dot"></div><div>akshaypimprikar.dev</div></div>
+      <div>pragma · FinanceTracker · 8 apps shipped</div>
+    </div>
+  </div>
+</body></html>

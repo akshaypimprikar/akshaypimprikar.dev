@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font-size",
+        "value": "128px",
+        "files": [
+          ".impeccable/og-template.html"
+        ],
+        "createdAt": "2026-08-30T20:53:56.754Z",
+        "reason": "one-off 2x OG-image render template (.impeccable/og-template.html), not live UI — not on the page type ramp"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "44px",
+        "files": [
+          ".impeccable/og-template.html"
+        ],
+        "createdAt": "2026-08-30T20:53:56.791Z",
+        "reason": "one-off 2x OG-image render template (.impeccable/og-template.html), not live UI — not on the page type ramp"
+      }
+    ]
+  }
+}

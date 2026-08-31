@@ -1,0 +1,103 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const eras = [
+  { yr: "2024–now", co: "Freelance", metric: "pragma · FinanceTracker · agentic pipeline", now: true },
+  { yr: "2023–24", co: "Medidata", metric: "myMedidata · 11M participants · HIPAA-regulated" },
+  { yr: "2019–23", co: "Fiserv", metric: "CardValet · 5M users · became Lead in 2021" },
+  { yr: "2016–18", co: "WW", metric: "4.8★ · 4.6M users at peak growth" },
+  { yr: "2012–16", co: "Early Career", metric: "Vanguard, Genworth, NYC 311, CVS Pharmacy, Paramount Network, Sapient" },
+];
+---
+<BaseLayout title="Home">
+  <section class="hero">
+    <h1 class="spring-in">Akshay Pimprikar</h1>
+    <p class="role fade-in" style="animation-delay:.3s">
+      Lead iOS Engineer with 12+ years building and scaling production software for 1M–20M users
+      across fintech, healthcare, and consumer — currently building an autonomous agentic pipeline
+      that ships real software end to end.
+    </p>
+    <a class="resume-cta fade-in" style="animation-delay:.42s" href="/Akshay-Pimprikar-Resume.pdf" target="_blank" rel="noopener">
+      Download resume →
+    </a>
+  </section>
+
+  <section class="timeline fade-in" style="animation-delay:.5s">
+    <div class="track"><div class="fill"></div></div>
+    <div class="eras">
+      {eras.map((e, i) => (
+        <div class={`era glass-card fade-in ${e.now ? "now" : ""}`} style={`animation-delay:${1.0 + i * 0.08}s`}>
+          <div class="dot"></div>
+          <div class="yr">{e.yr}</div>
+          <div class="co">{e.co}</div>
+          <div class="metric">{e.metric}</div>
+        </div>
+      ))}
+    </div>
+    <a class="more" href="/career">See the full career →</a>
+  </section>
+
+  <section class="cases fade-in" style="animation-delay:1.5s">
+    <h2 class="section-headline">Case studies</h2>
+    <a class="case glass-card interactive" href="/work/pragma">
+      <h3>pragma — the agentic pipeline</h3>
+      <p>An 8-agent iOS development pipeline: spec → plan → feature → gates → review → test → bugfix → release. Two of eight stages need human approval; the rest run autonomously until merge.</p>
+      <div class="read-more">Read the case study →</div>
+    </a>
+    <a class="case glass-card interactive" href="/work/financetracker">
+      <h3>FinanceTracker — built by the pipeline</h3>
+      <p>A production SwiftUI + SwiftData app: MVVM + Repository architecture, @ModelActor CSV import, VersionedSchema migrations, structured MCP build diagnostics.</p>
+      <div class="read-more">Read the case study →</div>
+    </a>
+  </section>
+
+  <section class="apps-teaser fade-in" style="animation-delay:1.65s">
+    <a href="/apps">Eight shipped apps across fintech, healthcare, consumer, and sports — see them all →</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero, .timeline, .cases, .apps-teaser{padding:0 6vw; max-width:1180px; margin:0 auto;}
+  .hero{padding-top:9vh;}
+  h1{font-size:clamp(40px,6vw,74px); font-weight:600; letter-spacing:-.02em; line-height:1.02; margin:14px 0 0;}
+  .role{font-size:15px; color:var(--dim); font-weight:400; max-width:640px; margin:20px 0 0; line-height:1.5;}
+  .resume-cta{display:inline-block; margin-top:26px; padding:11px 20px; border-radius:8px;
+    background:var(--accent); color:var(--bg); font-size:13px; font-weight:600; text-decoration:none;
+    transition:transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s ease;}
+  .resume-cta:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,161,90,.25);}
+
+  .timeline{margin-top:9vh; position:relative; padding-top:6px;}
+  .track{position:relative; height:1px; background:var(--line); margin:0 0 46px;}
+  .track .fill{position:absolute; left:0; top:0; height:1px; width:100%; background:linear-gradient(90deg, var(--accent), var(--accent) 18%, transparent);}
+  .eras{display:grid; grid-template-columns:repeat(5,1fr); gap:14px;}
+  .era{position:relative; padding:20px 18px 18px;}
+  .era .dot{position:absolute; top:-25px; left:18px; width:7px; height:7px; border-radius:50%; background:var(--dim);}
+  .era.now .dot{background:var(--accent); box-shadow:0 0 0 4px rgba(201,161,90,.18);}
+  .era .yr{font-size:11px; color:var(--dim); letter-spacing:.05em; font-variant-numeric:tabular-nums;}
+  .era .co{font-size:16px; font-weight:600; margin-top:6px;}
+  .era .metric{font-size:13px; color:var(--dim); margin-top:6px; line-height:1.4;}
+  .era.now .co{color:var(--accent);}
+  .more{display:inline-block; margin-top:22px; font-size:13px; color:var(--dim); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px;}
+  .more:hover{color:var(--ink); border-color:var(--accent);}
+
+  .cases{margin-top:64px; display:grid; grid-template-columns:1fr 1fr; gap:20px; position:relative;}
+  .section-headline{grid-column:1 / -1; font-size:20px; font-weight:600; letter-spacing:-.01em; color:var(--ink); margin:0 0 6px;}
+  .case{padding:26px 26px 24px; text-decoration:none; color:inherit; display:block;
+    background:linear-gradient(155deg, rgba(255,255,255,.045), rgba(255,255,255,.015));}
+  .case h3{margin:0 0 8px; font-size:16px; font-weight:600; letter-spacing:-.01em;}
+  .case p{margin:0; font-size:13px; color:var(--dim); line-height:1.6;}
+  .case .read-more{margin-top:14px; font-size:13px; color:var(--dim);}
+  .case:hover .read-more{color:var(--accent);}
+
+  .apps-teaser{margin-top:44px; padding-bottom:20px;}
+  .apps-teaser a{font-size:13px; color:var(--dim); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px;}
+  .apps-teaser a:hover{color:var(--ink); border-color:var(--accent);}
+
+  @media (max-width: 900px){
+    .eras{grid-template-columns:1fr 1fr;}
+    .cases{grid-template-columns:1fr;}
+  }
+  @media (max-width: 560px){
+    .eras{grid-template-columns:1fr;}
+  }
+</style>

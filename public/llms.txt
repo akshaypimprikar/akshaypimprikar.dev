@@ -1,0 +1,23 @@
+# Akshay Pimprikar
+
+> Lead iOS Engineer with 12+ years shipping production mobile software for 1M-20M users across fintech, healthcare, and consumer. Currently building pragma, an 8-agent agentic iOS development pipeline that ships real software end to end.
+
+Akshay Pimprikar is a mobile engineering leader based in Boston, MA. He has led iOS engineering at Medidata Solutions (myMedidata, 11M clinical trial participants), Fiserv (CardValet, 5M users across 1,000+ financial institutions), and WW International (Weight Watchers, 4.6M users). He holds an M.S. in Computer Science from George Mason University.
+
+Since May 2024 he has been building pragma, an open-source 8-agent iOS development pipeline (spec, plan, feature, gates, review, test, bugfix, release) that automates the full feature lifecycle with human approval only at the spec and plan stages. pragma built FinanceTracker, a production SwiftUI + SwiftData personal finance app, entirely through the pipeline.
+
+## Pages
+
+- [Home](https://akshaypimprikar.dev/): overview, career timeline, links
+- [Career](https://akshaypimprikar.dev/career): full 12-year role-by-role history
+- [pragma](https://akshaypimprikar.dev/work/pragma): case study on the 8-agent iOS development pipeline
+- [FinanceTracker](https://akshaypimprikar.dev/work/financetracker): case study on the SwiftUI + SwiftData app pragma built
+- [Apps](https://akshaypimprikar.dev/apps): every production app shipped, with real App Store links
+
+## Links
+
+- GitHub: https://github.com/akshaypimprikar
+- pragma repository: https://github.com/akshaypimprikar/pragma
+- FinanceTracker repository: https://github.com/akshaypimprikar/financetracker-ios
+- LinkedIn: https://linkedin.com/in/akshaypimprikar
+- Resume (PDF): https://akshaypimprikar.dev/Akshay-Pimprikar-Resume.pdf
