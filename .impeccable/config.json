@@ -56,42 +56,6 @@
         ],
         "createdAt": "2026-08-31T03:45:11.776Z",
         "reason": "one-off 2x terminal-log render template for a generated case-thumb raster asset (.impeccable/pragma-thumb.html), not live UI — monospace here depicts real terminal output, not a costume"
-      },
-      {
-        "rule": "design-system-radius",
-        "value": "20px",
-        "files": [
-          ".impeccable/pragma-card-thumb.html"
-        ],
-        "createdAt": "2026-08-31T04:54:48.377Z",
-        "reason": "one-off 2x terminal-log render template for a generated homepage card-thumb raster asset (.impeccable/pragma-card-thumb.html), not live UI — monospace depicts real terminal output, not a costume"
-      },
-      {
-        "rule": "design-system-font",
-        "value": "sf mono",
-        "files": [
-          ".impeccable/pragma-card-thumb.html"
-        ],
-        "createdAt": "2026-08-31T04:54:48.416Z",
-        "reason": "one-off 2x terminal-log render template for a generated homepage card-thumb raster asset (.impeccable/pragma-card-thumb.html), not live UI — monospace depicts real terminal output, not a costume"
-      },
-      {
-        "rule": "design-system-font-size",
-        "value": "27px",
-        "files": [
-          ".impeccable/pragma-card-thumb.html"
-        ],
-        "createdAt": "2026-08-31T04:54:48.455Z",
-        "reason": "one-off 2x terminal-log render template for a generated homepage card-thumb raster asset (.impeccable/pragma-card-thumb.html), not live UI — monospace depicts real terminal output, not a costume"
-      },
-      {
-        "rule": "design-system-font-size",
-        "value": "26px",
-        "files": [
-          ".impeccable/pragma-card-thumb.html"
-        ],
-        "createdAt": "2026-08-31T04:54:48.494Z",
-        "reason": "one-off 2x terminal-log render template for a generated homepage card-thumb raster asset (.impeccable/pragma-card-thumb.html), not live UI — monospace depicts real terminal output, not a costume"
       }
     ]
   }
