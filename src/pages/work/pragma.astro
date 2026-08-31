@@ -72,10 +72,22 @@ const schema = {
     </p>
     <p class="cta">Want to see a specific stage in more detail, or talk through where a pipeline like this breaks down? Reach me at <a href="mailto:akshaypimprikar@gmail.com">akshaypimprikar@gmail.com</a>.</p>
   </section>
+
+  <section class="published fade-in" style="animation-delay:1s">
+    <h2>Published on</h2>
+    <div class="pub-grid">
+      <a class="pub-card glass-card interactive" href="https://github.com/twostraws/Swift-Agent-Skills" target="_blank" rel="noopener">
+        <span class="pub-plaque"><img src="/logos/swift-agent-skills.webp" alt="Swift Agent Skills" loading="lazy" /></span>
+      </a>
+      <a class="pub-card glass-card interactive" href="https://www.claudedirectory.org/plugins/pragma" target="_blank" rel="noopener">
+        <span class="pub-plaque dark"><img src="/logos/claude-directory.webp" alt="Claude Directory" loading="lazy" /></span>
+      </a>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
-  .head, .session, .pipeline, .detail{padding:0 6vw; max-width:1000px; margin:0 auto;}
+  .head, .session, .pipeline, .detail, .published{padding:0 6vw; max-width:1000px; margin:0 auto;}
   .head{padding-top:9vh;}
   h1{font-size:clamp(36px,5.5vw,60px); font-weight:600; letter-spacing:-.02em; margin:14px 0 0;}
   .sub{font-size:15px; color:var(--dim); max-width:620px; margin:18px 0 0; line-height:1.6;}
@@ -96,13 +108,20 @@ const schema = {
   .stage.human{border-color:rgba(201,161,90,.4);}
   .stage .tag{display:inline-block; margin-top:6px; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); font-weight:600;}
 
-  .detail{margin-top:8vh; padding-bottom:10vh;}
+  .detail{margin-top:8vh;}
   .detail p{font-size:15px; color:var(--dim); line-height:1.75; max-width:560px; margin:0 0 18px;}
   .detail em{color:var(--ink); font-style:normal;}
   .detail a{color:var(--accent); text-decoration:none;}
   .detail a:hover{text-decoration:underline;}
   .detail .cta{color:var(--ink);}
 
+  .published{margin-top:8vh; padding-bottom:10vh;}
+  .pub-grid{display:flex; flex-wrap:wrap; gap:14px;}
+  .pub-card{padding:22px 26px; display:inline-flex; text-decoration:none;}
+  .pub-plaque{background:#fff; border-radius:8px; padding:10px 18px; display:flex; align-items:center;}
+  .pub-plaque.dark{background:transparent; padding:0;}
+  .pub-plaque img{display:block; height:26px; width:auto;}
+
   @media (max-width: 900px){ .stages{grid-template-columns:1fr 1fr;} }
-  @media (max-width: 560px){ .stages{grid-template-columns:1fr;} }
+  @media (max-width: 560px){ .stages{grid-template-columns:1fr;} .pub-card{padding:18px 20px;} }
 </style>
