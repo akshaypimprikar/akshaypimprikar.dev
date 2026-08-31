@@ -38,16 +38,16 @@ const groups = categoryOrder
   <section class="cases fade-in" style="animation-delay:.5s">
     <h2 class="section-headline">Currently working on</h2>
     <a class="case glass-card interactive" href="/work/pragma">
-      <img class="case-thumb" src="/case-thumbs/pragma.webp" alt="pragma's 8-agent workflow running" loading="lazy" width="640" height="360" />
+      <img class="case-thumb" src="/case-thumbs/pragma-card.webp" alt="pragma's 8-agent workflow running" loading="lazy" width="368" height="460" />
       <h3>pragma — the agentic pipeline</h3>
       <p>An 8-agent iOS development pipeline: spec → plan → feature → gates → review → test → bugfix → release. Two of eight stages need human approval; the rest run autonomously until merge.</p>
-      <div class="read-more">Read the case study →</div>
+      <div class="read-more">Read more →</div>
     </a>
     <a class="case glass-card interactive" href="/work/financetracker">
-      <img class="case-thumb tall" src="/case-thumbs/financetracker-dashboard.jpg" alt="FinanceTracker dashboard running on iPhone" loading="lazy" width="368" height="460" />
+      <img class="case-thumb" src="/case-thumbs/financetracker-dashboard.jpg" alt="FinanceTracker dashboard running on iPhone" loading="lazy" width="368" height="460" />
       <h3>FinanceTracker — built by the pipeline</h3>
       <p>A production SwiftUI + SwiftData app: MVVM + Repository architecture, @ModelActor CSV import, VersionedSchema migrations, structured MCP build diagnostics.</p>
-      <div class="read-more">Read the case study →</div>
+      <div class="read-more">Read more →</div>
     </a>
   </section>
 
@@ -121,8 +121,7 @@ const groups = categoryOrder
   .section-headline{grid-column:1 / -1; font-size:20px; font-weight:600; letter-spacing:-.01em; color:var(--ink); margin:0 0 6px;}
   .case{padding:0 0 24px; text-decoration:none; color:inherit; display:block; overflow:hidden;
     background:linear-gradient(155deg, rgba(255,255,255,.045), rgba(255,255,255,.015));}
-  .case-thumb{width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; object-position:top; display:block; margin:0 0 20px; border-bottom:1px solid var(--line);}
-  .case-thumb.tall{aspect-ratio:4/5;}
+  .case-thumb{width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; object-position:top; display:block; margin:0 0 20px; border-bottom:1px solid var(--line);}
   .case h3{margin:0 26px 8px; font-size:16px; font-weight:600; letter-spacing:-.01em;}
   .case p{margin:0 26px; font-size:13px; color:var(--dim); line-height:1.6;}
   .case .read-more{margin:14px 26px 0; font-size:13px; color:var(--dim);}
