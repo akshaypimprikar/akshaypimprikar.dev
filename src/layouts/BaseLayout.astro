@@ -65,13 +65,15 @@ const fullTitle = title === "Home" ? "Akshay Pimprikar — Lead iOS Engineer" : 
     THESIS: A career read as evidence, not a resume restated — restraint and one accent make credibility the point, not decoration.
     OWN-WORLD: Near-black ground, warm gold accent used sparingly, translucent glass cards with visible blur + inner highlight, SF Pro throughout, two-tier exponential entrance motion (calm for content, fast+scaled for each page's h1) — no bounce/overshoot, no drenched color. No eyebrow/kicker anywhere; headings carry their own weight.
     STORY: A hiring manager sees two real engineering case studies with real evidence (screenshots, a workflow visual), every shipped app with real App Store links, and a personal account of the person behind the work, and believes this is verifiable production work, not a template.
-    FIRST VIEWPORT: Name + role statement top-left, no eyebrow above it; two case-study cards with thumbnails below; every shipped app beneath that, grouped by category; footer links last.
+    FIRST VIEWPORT: Name + role statement top-left, no eyebrow above it; two case-study cards with thumbnails below; every shipped app beneath that, grouped by category. Nav carries the site's only link list (About Me + identity links); the footer is copyright only.
     FORM: Restrained Native Craft — synthesized after three rounds (seed key 189d83c7): "static/boring," then "provocative," then user-approved as the middle register.
     FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
   -->
   <div class="chrome-bg" aria-hidden="true"></div>
   <header class="site-header">
-    <a class="brand" href="/">Akshay Pimprikar</a>
+    <a class="brand" href="/" aria-label="Akshay Pimprikar — Home">
+      <img src="/favicon.svg" width="32" height="32" alt="" />
+    </a>
     <nav>
       {nav.map((item) => (
         <a
@@ -87,14 +89,6 @@ const fullTitle = title === "Home" ? "Akshay Pimprikar — Lead iOS Engineer" : 
     <slot />
   </main>
   <footer class="site-footer">
-    <div class="foot-links">
-      <a href="/Akshay-Pimprikar-Resume.pdf" target="_blank" rel="noopener">Resume</a>
-      <a href="https://linkedin.com/in/akshaypimprikar" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:akshaypimprikar@gmail.com">Email</a>
-      <a href="https://github.com/akshaypimprikar" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://github.com/akshaypimprikar/pragma" target="_blank" rel="noopener">GitHub — pragma</a>
-      <a href="https://github.com/akshaypimprikar/financetracker-ios" target="_blank" rel="noopener">GitHub — FinanceTracker</a>
-    </div>
     <div class="foot-meta">&copy; {new Date().getFullYear()} Akshay Pimprikar</div>
   </footer>
 
@@ -131,7 +125,9 @@ const fullTitle = title === "Home" ? "Akshay Pimprikar — Lead iOS Engineer" : 
     position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between;
     padding:22px 6vw; border-bottom:1px solid var(--line); flex-wrap:wrap; row-gap:12px;
   }
-  .site-header .brand{font-size:16px; font-weight:600; text-decoration:none; letter-spacing:-.01em; padding:4px 0;}
+  .site-header .brand{display:inline-flex; padding:4px 0; line-height:0;}
+  .site-header .brand img{display:block; transition:transform .25s cubic-bezier(.16,1,.3,1);}
+  .site-header .brand:hover img{transform:translateY(-1px);}
   .site-header nav{display:flex; flex-wrap:wrap; gap:4px 22px;}
   .site-header nav a{
     font-size:12px; color:var(--dim); text-decoration:none; letter-spacing:.01em; transition:color .25s ease;
@@ -141,15 +137,9 @@ const fullTitle = title === "Home" ? "Akshay Pimprikar — Lead iOS Engineer" : 
   .site-header nav a.active{color:var(--accent);}
 
   .site-footer{
-    position:relative; z-index:1; margin-top:80px; padding:36px 6vw 44px; border-top:1px solid var(--line);
-    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
+    position:relative; z-index:1; margin-top:80px; padding:28px 6vw; border-top:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
   }
-  .foot-links{display:flex; gap:8px 24px; flex-wrap:wrap;}
-  .foot-links a{
-    font-size:12px; color:var(--dim); text-decoration:none; border-bottom:1px solid transparent;
-    transition:color .25s, border-color .25s; padding:10px 2px; display:inline-flex; align-items:center; min-height:24px;
-  }
-  .foot-links a:hover{color:var(--ink); border-color:var(--accent);}
   .foot-meta{font-size:12px; color:var(--dim);}
 
   .glass-card{
