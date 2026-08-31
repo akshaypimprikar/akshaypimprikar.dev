@@ -38,6 +38,10 @@ const schema = {
     </div>
   </section>
 
+  <section class="session fade-in" style="animation-delay:.45s">
+    <img class="session-img" src="/case-thumbs/pragma.png" alt="A pragma feature session: eight pipeline stages running from spec to release" loading="lazy" width="1600" height="900" />
+  </section>
+
   <section class="pipeline fade-in" style="animation-delay:.5s">
     <h2>The pipeline</h2>
     <div class="stages">
@@ -70,13 +74,16 @@ const schema = {
 </BaseLayout>
 
 <style>
-  .head, .pipeline, .detail{padding:0 6vw; max-width:1000px; margin:0 auto;}
+  .head, .session, .pipeline, .detail{padding:0 6vw; max-width:1000px; margin:0 auto;}
   .head{padding-top:9vh;}
   h1{font-size:clamp(36px,5.5vw,60px); font-weight:600; letter-spacing:-.02em; margin:14px 0 0;}
   .sub{font-size:15px; color:var(--dim); max-width:620px; margin:18px 0 0; line-height:1.6;}
   .links{margin-top:20px;}
   .links a{font-size:13px; color:var(--accent); text-decoration:none;}
   .links a:hover{text-decoration:underline;}
+
+  .session{margin-top:6vh;}
+  .session-img{width:100%; height:auto; border-radius:14px; border:1px solid var(--line); display:block;}
 
   h2{font-size:20px; font-weight:600; letter-spacing:-.01em; margin:0 0 22px;}
   .pipeline{margin-top:8vh;}

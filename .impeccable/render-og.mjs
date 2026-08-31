@@ -7,10 +7,9 @@ const template = fs.readFileSync(path.join(ROOT, ".impeccable/og-template.html")
 
 const pages = [
   { slug: "og-image", title: "Akshay Pimprikar", subtitle: "Lead iOS Engineer — 12+ years shipping production mobile software for 1M–20M users. Building pragma, an 8-agent agentic pipeline." },
-  { slug: "og/career", title: "Twelve years, one thread", subtitle: "Mobile engineering leadership across fintech, healthcare, and consumer — 1M to 20M users per app." },
+  { slug: "og/about", title: "Twelve years, one thread", subtitle: "12+ years building production iOS software. About me, how I work, and how to reach me." },
   { slug: "og/pragma", title: "pragma", subtitle: "An 8-agent iOS development pipeline, spec through release." },
   { slug: "og/financetracker", title: "FinanceTracker", subtitle: "A production SwiftUI + SwiftData app, built entirely by the pragma pipeline." },
-  { slug: "og/apps", title: "Apps", subtitle: "Eight shipped apps across fintech, healthcare, consumer, and sports — 12+ years of production iOS." },
 ];
 
 fs.mkdirSync(path.join(ROOT, "public/og"), { recursive: true });

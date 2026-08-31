@@ -8,11 +8,10 @@ Since May 2024 he has been building pragma, an open-source 8-agent iOS developme
 
 ## Pages
 
-- [Home](https://akshaypimprikar.dev/): overview, career timeline, links
-- [Career](https://akshaypimprikar.dev/career): full 12-year role-by-role history
+- [Home](https://akshaypimprikar.dev/): overview, current case studies, every shipped app with real App Store links
+- [About Me](https://akshaypimprikar.dev/about): personal background and technical skills
 - [pragma](https://akshaypimprikar.dev/work/pragma): case study on the 8-agent iOS development pipeline
 - [FinanceTracker](https://akshaypimprikar.dev/work/financetracker): case study on the SwiftUI + SwiftData app pragma built
-- [Apps](https://akshaypimprikar.dev/apps): every production app shipped, with real App Store links
 
 ## Links
 

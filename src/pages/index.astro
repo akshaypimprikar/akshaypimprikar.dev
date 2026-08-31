@@ -1,13 +1,21 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const eras = [
-  { yr: "2024–now", co: "Freelance", metric: "pragma · FinanceTracker · agentic pipeline", now: true },
-  { yr: "2023–24", co: "Medidata", metric: "myMedidata · 11M participants · HIPAA-regulated" },
-  { yr: "2019–23", co: "Fiserv", metric: "CardValet · 5M users · became Lead in 2021" },
-  { yr: "2016–18", co: "WW", metric: "4.8★ · 4.6M users at peak growth" },
-  { yr: "2012–16", co: "Early Career", metric: "Vanguard, Genworth, NYC 311, CVS Pharmacy, Paramount Network, Sapient" },
+const apps = [
+  { name: "myMedidata", co: "Medidata Solutions", stat: "4.7★ · 11M participants", note: "Clinical trial platform, HIPAA-regulated, 1M monthly active users.", icon: "/icons/mymedidata.webp", url: "https://apps.apple.com/us/app/mymedidata/id6443781776", category: "Healthcare" },
+  { name: "CardValet", co: "Fiserv", stat: "5M users · 1,000+ institutions", note: "Consumer fintech app; redesigned it as an Analyst, then led the 10-engineer team as Lead SDE.", icon: "/icons/cardvalet.webp", url: "https://apps.apple.com/us/app/cardvalet/id849898083", category: "Fintech" },
+  { name: "WW", co: "Weight Watchers", stat: "4.8★ · 4.6M users", note: "UI/UX improvements and HealthKit integration during peak growth.", icon: "/icons/ww.webp", url: "https://apps.apple.com/us/app/weightwatchers-program/id331308914", category: "Consumer & Media" },
+  { name: "Miami HEAT Mobile", co: "SapientNitro (client: Miami Heat)", stat: "Games, stats, in-arena wallet", note: "Built while at SapientNitro: game tracking, statistics, and an in-app wallet for the Arena.", icon: "/icons/miamiheat.webp", url: "https://apps.apple.com/us/app/miami-heat-mobile/id497407923", category: "Sports" },
+  { name: "Paramount", co: "Viacom", stat: "Best New App — Entertainment", note: "Built the first version in 2014, when it shipped as Spike TV, later rebranded Paramount Network then Paramount+. Same App Store listing, long since rebuilt by other teams.", icon: "/icons/paramount.webp", url: "https://apps.apple.com/us/app/paramount/id530168168", category: "Consumer & Media" },
+  { name: "CVS", co: "CVS Caremark", stat: "ExtraCare feature", note: "Delivered the ExtraCare feature: data persistence for rewards and coupons.", icon: "/icons/cvs.webp", url: "https://apps.apple.com/us/app/cvs/id602716057", category: "Healthcare" },
+  { name: "NYC 311", co: "NYC Dept. of IT & Telecom", stat: "+35% engagement", note: "Official app for non-emergency city services.", icon: "/icons/nyc311.webp", url: "https://apps.apple.com/us/app/nyc-311/id324897619", category: "Consumer & Media" },
+  { name: "Vanguard", co: "The Vanguard Group", stat: "Real-time financial data", note: "Created the Markets Section, displaying real-time financial data.", icon: "/icons/vanguard.webp", url: "https://apps.apple.com/us/app/vanguard-save-invest-retire/id335186209", category: "Fintech" },
 ];
+
+const categoryOrder = ["Fintech", "Healthcare", "Consumer & Media", "Sports"];
+const groups = categoryOrder
+  .map((category) => ({ category, items: apps.filter((a) => a.category === category) }))
+  .filter((g) => g.items.length > 0);
 ---
 <BaseLayout title="Home">
   <section class="hero">
@@ -22,42 +30,70 @@ const eras = [
     </a>
   </section>
 
-  <section class="timeline fade-in" style="animation-delay:.5s">
-    <div class="track"><div class="fill"></div></div>
-    <div class="eras">
-      {eras.map((e, i) => (
-        <div class={`era glass-card fade-in ${e.now ? "now" : ""}`} style={`animation-delay:${1.0 + i * 0.08}s`}>
-          <div class="dot"></div>
-          <div class="yr">{e.yr}</div>
-          <div class="co">{e.co}</div>
-          <div class="metric">{e.metric}</div>
-        </div>
-      ))}
-    </div>
-    <a class="more" href="/career">See the full career →</a>
-  </section>
-
-  <section class="cases fade-in" style="animation-delay:1.5s">
-    <h2 class="section-headline">Case studies</h2>
+  <section class="cases fade-in" style="animation-delay:.5s">
+    <h2 class="section-headline">Currently working on</h2>
     <a class="case glass-card interactive" href="/work/pragma">
+      <img class="case-thumb" src="/case-thumbs/pragma.png" alt="pragma's 8-agent workflow running" loading="lazy" width="640" height="360" />
       <h3>pragma — the agentic pipeline</h3>
       <p>An 8-agent iOS development pipeline: spec → plan → feature → gates → review → test → bugfix → release. Two of eight stages need human approval; the rest run autonomously until merge.</p>
       <div class="read-more">Read the case study →</div>
     </a>
     <a class="case glass-card interactive" href="/work/financetracker">
+      <img class="case-thumb" src="/case-thumbs/financetracker-dashboard.jpg" alt="FinanceTracker dashboard running on iPhone" loading="lazy" width="640" height="360" />
       <h3>FinanceTracker — built by the pipeline</h3>
       <p>A production SwiftUI + SwiftData app: MVVM + Repository architecture, @ModelActor CSV import, VersionedSchema migrations, structured MCP build diagnostics.</p>
       <div class="read-more">Read the case study →</div>
     </a>
   </section>
 
-  <section class="apps-teaser fade-in" style="animation-delay:1.65s">
-    <a href="/apps">Eight shipped apps across fintech, healthcare, consumer, and sports — see them all →</a>
+  <section class="apps-intro fade-in" style="animation-delay:.9s">
+    <h2 class="section-headline">Shipped apps</h2>
+    <p class="apps-sub">Eight production apps across fintech, healthcare, consumer, and sports — shipped and maintained over 12+ years. Links go to each app's real App Store page.</p>
   </section>
+
+  {groups.map((group, gi) => (
+    <section class="group">
+      <h3 class="group-headline fade-in" style={`animation-delay:${1.0 + gi * 0.1}s`}>{group.category}</h3>
+      <div class="grid">
+        {group.items.map((a, i) => {
+          const Tag = a.url ? "a" : "div";
+          return (
+            <Tag
+              class={`app glass-card fade-in ${a.url ? "linked interactive" : ""}`}
+              style={`animation-delay:${1.1 + gi * 0.1 + i * 0.06}s`}
+              {...(a.url ? { href: a.url, target: "_blank", rel: "noopener" } : {})}
+            >
+              {a.icon ? (
+                <>
+                  <img
+                    class="icon-img"
+                    src={a.icon}
+                    alt={`${a.name} app icon`}
+                    width="44"
+                    height="44"
+                    loading="lazy"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                  />
+                  <div class="icon icon-fallback" aria-hidden="true">{a.name.slice(0, 2).toUpperCase()}</div>
+                </>
+              ) : (
+                <div class="icon" aria-hidden="true">{a.name.slice(0, 2).toUpperCase()}</div>
+              )}
+              <div class="name">{a.name}</div>
+              <div class="co">{a.co}</div>
+              <div class="stat">{a.stat}</div>
+              <p>{a.note}</p>
+              <div class={`link ${a.url ? "" : "pending"}`}>{a.url ? "View on the App Store →" : "No longer available"}</div>
+            </Tag>
+          );
+        })}
+      </div>
+    </section>
+  ))}
 </BaseLayout>
 
 <style>
-  .hero, .timeline, .cases, .apps-teaser{padding:0 6vw; max-width:1180px; margin:0 auto;}
+  .hero, .cases, .apps-intro, .group{padding:0 6vw; max-width:1180px; margin:0 auto;}
   .hero{padding-top:9vh;}
   h1{font-size:clamp(40px,6vw,74px); font-weight:600; letter-spacing:-.02em; line-height:1.02; margin:14px 0 0;}
   .role{font-size:15px; color:var(--dim); font-weight:400; max-width:640px; margin:20px 0 0; line-height:1.5;}
@@ -66,38 +102,44 @@ const eras = [
     transition:transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s ease;}
   .resume-cta:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,161,90,.25);}
 
-  .timeline{margin-top:9vh; position:relative; padding-top:6px;}
-  .track{position:relative; height:1px; background:var(--line); margin:0 0 46px;}
-  .track .fill{position:absolute; left:0; top:0; height:1px; width:100%; background:linear-gradient(90deg, var(--accent), var(--accent) 18%, transparent);}
-  .eras{display:grid; grid-template-columns:repeat(5,1fr); gap:14px;}
-  .era{position:relative; padding:20px 18px 18px;}
-  .era .dot{position:absolute; top:-25px; left:18px; width:7px; height:7px; border-radius:50%; background:var(--dim);}
-  .era.now .dot{background:var(--accent); box-shadow:0 0 0 4px rgba(201,161,90,.18);}
-  .era .yr{font-size:11px; color:var(--dim); letter-spacing:.05em; font-variant-numeric:tabular-nums;}
-  .era .co{font-size:16px; font-weight:600; margin-top:6px;}
-  .era .metric{font-size:13px; color:var(--dim); margin-top:6px; line-height:1.4;}
-  .era.now .co{color:var(--accent);}
-  .more{display:inline-block; margin-top:22px; font-size:13px; color:var(--dim); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px;}
-  .more:hover{color:var(--ink); border-color:var(--accent);}
-
-  .cases{margin-top:64px; display:grid; grid-template-columns:1fr 1fr; gap:20px; position:relative;}
+  .cases{margin-top:9vh; display:grid; grid-template-columns:1fr 1fr; gap:20px; position:relative;}
   .section-headline{grid-column:1 / -1; font-size:20px; font-weight:600; letter-spacing:-.01em; color:var(--ink); margin:0 0 6px;}
-  .case{padding:26px 26px 24px; text-decoration:none; color:inherit; display:block;
+  .case{padding:0 0 24px; text-decoration:none; color:inherit; display:block; overflow:hidden;
     background:linear-gradient(155deg, rgba(255,255,255,.045), rgba(255,255,255,.015));}
-  .case h3{margin:0 0 8px; font-size:16px; font-weight:600; letter-spacing:-.01em;}
-  .case p{margin:0; font-size:13px; color:var(--dim); line-height:1.6;}
-  .case .read-more{margin-top:14px; font-size:13px; color:var(--dim);}
+  .case-thumb{width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; object-position:top; display:block; margin:0 0 20px; border-bottom:1px solid var(--line);}
+  .case h3{margin:0 26px 8px; font-size:16px; font-weight:600; letter-spacing:-.01em;}
+  .case p{margin:0 26px; font-size:13px; color:var(--dim); line-height:1.6;}
+  .case .read-more{margin:14px 26px 0; font-size:13px; color:var(--dim);}
   .case:hover .read-more{color:var(--accent);}
 
-  .apps-teaser{margin-top:44px; padding-bottom:20px;}
-  .apps-teaser a{font-size:13px; color:var(--dim); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px;}
-  .apps-teaser a:hover{color:var(--ink); border-color:var(--accent);}
+  .apps-intro{margin-top:64px;}
+  .apps-sub{font-size:15px; color:var(--dim); max-width:600px; margin:0; line-height:1.6;}
+
+  .group{margin-top:6vh;}
+  .group:last-of-type{padding-bottom:10vh;}
+  .group-headline{font-size:16px; font-weight:600; letter-spacing:-.01em; color:var(--ink); margin:0 0 16px;}
+  .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .app{padding:24px 22px 20px; display:block; text-decoration:none; color:inherit;}
+  .app.linked .link{color:var(--accent);}
+  .app.linked:hover .link{text-decoration:underline;}
+  .icon{width:44px; height:44px; border-radius:11px; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, rgba(201,161,90,.35), rgba(120,140,255,.18));
+    font-size:16px; font-weight:700; color:var(--ink); margin-bottom:14px;}
+  .icon-fallback{display:none;}
+  .icon-img{width:44px; height:44px; aspect-ratio:1/1; object-fit:cover; border-radius:11px; display:block; margin-bottom:14px;
+    box-shadow:0 2px 10px rgba(0,0,0,.35);}
+  .name{font-size:16px; font-weight:600;}
+  .co{font-size:13px; color:var(--dim); margin-top:2px;}
+  .stat{font-size:13px; color:var(--accent); margin-top:10px; font-weight:600;}
+  .app p{font-size:13px; color:var(--dim); line-height:1.55; margin:8px 0 0;}
+  .link{margin-top:14px; font-size:11px; letter-spacing:.03em; transition:color .25s ease;}
+  .link.pending{color:var(--dim);}
 
   @media (max-width: 900px){
-    .eras{grid-template-columns:1fr 1fr;}
     .cases{grid-template-columns:1fr;}
+    .grid{grid-template-columns:1fr 1fr;}
   }
   @media (max-width: 560px){
-    .eras{grid-template-columns:1fr;}
+    .grid{grid-template-columns:1fr;}
   }
 </style>

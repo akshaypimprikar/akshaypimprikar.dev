@@ -124,7 +124,7 @@ Almost entirely neutral, with the accent held to a strict minority role across t
 
 Six fixed steps carry every non-display role, consolidated from what had drifted to twelve near-duplicate sizes across the five pages:
 
-- **Display** (600, letter-spacing -0.02em): page-level `h1`s, in three deliberate emphasis tiers rather than one fixed size — a home page, a set of secondary content pages, and a dense reference page are not the same weight of "most important thing on screen." **Display** (`clamp(2.5rem, 6vw, 4.625rem)`, 74px ceiling) is reserved for the home page alone, the single most important surface. **Display Secondary** (`clamp(2.25rem, 5.5vw, 3.75rem)`, 60px ceiling) is shared identically by every content/case-study page (Apps, pragma, FinanceTracker). **Display Tertiary** (`clamp(2rem, 5vw, 3.25rem)`, 52px ceiling) is reserved for the Career page, the densest reading surface on the site.
+- **Display** (600, letter-spacing -0.02em): page-level `h1`s, in three deliberate emphasis tiers rather than one fixed size — a home page, a set of secondary content pages, and a dense reference page are not the same weight of "most important thing on screen." **Display** (`clamp(2.5rem, 6vw, 4.625rem)`, 74px ceiling) is reserved for the home page alone, the single most important surface. **Display Secondary** (`clamp(2.25rem, 5.5vw, 3.75rem)`, 60px ceiling) is shared identically by the two case-study pages (pragma, FinanceTracker). **Display Tertiary** (`clamp(2rem, 5vw, 3.25rem)`, 52px ceiling) is reserved for the About page, the densest reading surface on the site.
 - **Headline** (600, 20px): section headers inside a page (`h2`, e.g. "The pipeline", "Architecture decisions", "Case studies").
 - **Title** (600, 16px): every card and component title — case-study card `h3`, decision-card `h3`, pipeline-stage name, app name, role/company name, the header brand wordmark.
 - **Body** (400, 15px, line-height ~1.5–1.75 depending on the paragraph's density): primary paragraph copy — page subheads and long-form "what it proves" sections. Long paragraphs cap around 65–75ch via `max-width` rather than a fixed character count.
@@ -136,7 +136,7 @@ The one deliberate exception to the Micro step: the **"Human approval" status ta
 
 ### Named Rules
 **The Six-Step Rule.** Every non-display text on the site resolves to exactly one of Headline (20px) / Title (16px) / Body (15px) / Small (13px) / Micro (11px) / Label (12px). A new component reaches for the nearest existing step rather than introducing a seventh.
-**The Three-Tier Display Rule.** A page's `h1` uses exactly one of the three named Display tiers, by the page's role, not by taste: Display for the home page only, Display Secondary for every other content page (shared identically, never a fourth in-between value), Display Tertiary for the Career page. A new page picks the tier matching its role instead of inventing a new ceiling.
+**The Three-Tier Display Rule.** A page's `h1` uses exactly one of the three named Display tiers, by the page's role, not by taste: Display for the home page only, Display Secondary for the two case-study pages (shared identically, never a fourth in-between value), Display Tertiary for the About page. A new page picks the tier matching its role instead of inventing a new ceiling.
 **The Single-Face Rule.** No second font family is introduced for any role, including monospace or numeral display. Distinction comes from weight and size only.
 **The No-Kicker Rule.** No small uppercase label ever sits above a heading to introduce it — this system shipped with one on every page ("LEAD IOS ENGINEER," "CASE STUDY," "SHIPPED WORK") and it was removed sitewide during finish review as a hard craft-floor ban with no exception: the heading carries its own weight, full stop. A status badge that sits *after* a heading and adds real new information (e.g. the "Human approval" tag on a pipeline-stage card) is a different pattern and stays allowed; a label that merely restates or categorizes what the heading already says does not.
 
@@ -157,7 +157,7 @@ This system does not use drop-shadow as its primary depth device. Depth comes fr
 
 ### Shadow Vocabulary
 - **Accent glow** (`box-shadow: 0 0 0 4px rgba(201,161,90,.18)`): the ring around the "now" marker dot on the career timeline — a focused halo, not ambient elevation.
-- **Icon lift** (`box-shadow: 0 2px 10px rgba(0,0,0,.35)`): the small drop-shadow under each app icon on the Apps page, grounding a small raster image against the flat card.
+- **Icon lift** (`box-shadow: 0 2px 10px rgba(0,0,0,.35)`): the small drop-shadow under each app icon in the Shipped Apps section of the homepage, grounding a small raster image against the flat card.
 - **CTA hover** (`box-shadow: 0 6px 20px rgba(201,161,90,.25)`): the resume button's hover state — the one moment a shadow signals "this is about to be pressed."
 
 ### Named Rules

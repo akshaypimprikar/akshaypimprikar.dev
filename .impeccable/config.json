@@ -20,6 +20,42 @@
         ],
         "createdAt": "2026-08-30T20:53:56.791Z",
         "reason": "one-off 2x OG-image render template (.impeccable/og-template.html), not live UI — not on the page type ramp"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "20px",
+        "files": [
+          ".impeccable/pragma-thumb.html"
+        ],
+        "createdAt": "2026-08-31T03:45:11.669Z",
+        "reason": "one-off 2x terminal-log render template for a generated case-thumb raster asset (.impeccable/pragma-thumb.html), not live UI — monospace here depicts real terminal output, not a costume"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "sf mono",
+        "files": [
+          ".impeccable/pragma-thumb.html"
+        ],
+        "createdAt": "2026-08-31T03:45:11.705Z",
+        "reason": "one-off 2x terminal-log render template for a generated case-thumb raster asset (.impeccable/pragma-thumb.html), not live UI — monospace here depicts real terminal output, not a costume"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "26px",
+        "files": [
+          ".impeccable/pragma-thumb.html"
+        ],
+        "createdAt": "2026-08-31T03:45:11.740Z",
+        "reason": "one-off 2x terminal-log render template for a generated case-thumb raster asset (.impeccable/pragma-thumb.html), not live UI — monospace here depicts real terminal output, not a costume"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "25px",
+        "files": [
+          ".impeccable/pragma-thumb.html"
+        ],
+        "createdAt": "2026-08-31T03:45:11.776Z",
+        "reason": "one-off 2x terminal-log render template for a generated case-thumb raster asset (.impeccable/pragma-thumb.html), not live UI — monospace here depicts real terminal output, not a costume"
       }
     ]
   }

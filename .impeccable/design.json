@@ -45,7 +45,7 @@
     "typographyMeta": {
       "display": { "displayName": "Display", "purpose": "Home page h1 only — the single most important surface, 74px ceiling." },
       "display-secondary": { "displayName": "Display Secondary", "purpose": "h1 shared identically by every content/case-study page (Apps, pragma, FinanceTracker), 60px ceiling." },
-      "display-tertiary": { "displayName": "Display Tertiary", "purpose": "Career page h1, the densest reading surface, 52px ceiling." },
+      "display-tertiary": { "displayName": "Display Tertiary", "purpose": "About page h1, the densest reading surface, 52px ceiling." },
       "headline": { "displayName": "Headline", "purpose": "In-page section headers (h2)." },
       "title": { "displayName": "Title", "purpose": "Card and component titles: case-study h3, decision h3, app/role names, the brand wordmark." },
       "body": { "displayName": "Body", "purpose": "Primary paragraph copy: page subheads and long-form 'what it proves' sections." },

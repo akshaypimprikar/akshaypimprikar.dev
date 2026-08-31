@@ -37,6 +37,15 @@ const schema = {
     </div>
   </section>
 
+  <section class="screenshots fade-in" style="animation-delay:.45s">
+    <div class="shots">
+      <img src="/case-thumbs/financetracker-dashboard.jpg" alt="FinanceTracker dashboard: net worth, monthly spend, and budget summary" loading="lazy" width="368" height="800" />
+      <img src="/case-thumbs/financetracker-transactions.jpg" alt="FinanceTracker transaction list by payee, category, and amount" loading="lazy" width="368" height="800" />
+      <img src="/case-thumbs/financetracker-budgets.jpg" alt="FinanceTracker budgets by category with progress bars" loading="lazy" width="368" height="800" />
+      <img src="/case-thumbs/financetracker-accounts.jpg" alt="FinanceTracker accounts: checking, savings, and credit card rolling up to net worth" loading="lazy" width="368" height="800" />
+    </div>
+  </section>
+
   <section class="decisions fade-in" style="animation-delay:.5s">
     <h2>Architecture decisions</h2>
     <div class="grid">
@@ -62,7 +71,7 @@ const schema = {
 </BaseLayout>
 
 <style>
-  .head, .decisions, .detail{padding:0 6vw; max-width:1000px; margin:0 auto;}
+  .head, .screenshots, .decisions, .detail{padding:0 6vw; max-width:1000px; margin:0 auto;}
   .head{padding-top:9vh;}
   h1{font-size:clamp(36px,5.5vw,60px); font-weight:600; letter-spacing:-.02em; margin:14px 0 0;}
   .sub{font-size:15px; color:var(--dim); max-width:660px; margin:18px 0 0; line-height:1.6;}
@@ -71,6 +80,10 @@ const schema = {
   .links{margin-top:20px;}
   .links a{font-size:13px; color:var(--accent); text-decoration:none;}
   .links a:hover{text-decoration:underline;}
+
+  .screenshots{margin-top:6vh; max-width:1000px;}
+  .shots{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .shots img{width:100%; height:auto; aspect-ratio:368/800; object-fit:cover; border-radius:14px; border:1px solid var(--line); display:block;}
 
   h2{font-size:20px; font-weight:600; letter-spacing:-.01em; margin:0 0 22px;}
   .decisions{margin-top:8vh;}
@@ -82,5 +95,6 @@ const schema = {
   .detail{margin-top:8vh; padding-bottom:10vh;}
   .detail p{font-size:15px; color:var(--dim); line-height:1.75; max-width:720px; margin:0;}
 
-  @media (max-width: 560px){ .grid{grid-template-columns:1fr;} }
+  @media (max-width: 760px){ .shots{grid-template-columns:1fr 1fr;} }
+  @media (max-width: 560px){ .grid{grid-template-columns:1fr;} .shots{grid-template-columns:1fr 1fr;} }
 </style>

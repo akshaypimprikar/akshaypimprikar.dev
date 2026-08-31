@@ -7,11 +7,11 @@ interface Props {
 }
 const { title, description = "Lead iOS Engineer — 12+ years shipping production mobile software.", schema, ogImage = "/og-image.png" } = Astro.props;
 const nav = [
-  { href: "/", label: "Home" },
-  { href: "/career", label: "Career" },
-  { href: "/work/pragma", label: "pragma" },
-  { href: "/work/financetracker", label: "FinanceTracker" },
-  { href: "/apps", label: "Apps" },
+  { href: "/about", label: "About Me" },
+  { href: "/Akshay-Pimprikar-Resume.pdf", label: "Resume", external: true },
+  { href: "https://linkedin.com/in/akshaypimprikar", label: "LinkedIn", external: true },
+  { href: "mailto:akshaypimprikar@gmail.com", label: "Email", external: true },
+  { href: "https://github.com/akshaypimprikar", label: "GitHub", external: true },
 ];
 const SITE_URL = "https://akshaypimprikar.dev";
 const pageUrl = new URL(Astro.url.pathname, SITE_URL).toString();
@@ -64,8 +64,8 @@ const fullTitle = title === "Home" ? "Akshay Pimprikar — Lead iOS Engineer" : 
   <!--
     THESIS: A career read as evidence, not a resume restated — restraint and one accent make credibility the point, not decoration.
     OWN-WORLD: Near-black ground, warm gold accent used sparingly, translucent glass cards with visible blur + inner highlight, SF Pro throughout, two-tier exponential entrance motion (calm for content, fast+scaled for each page's h1) — no bounce/overshoot, no drenched color. No eyebrow/kicker anywhere; headings carry their own weight.
-    STORY: A hiring manager sees a real career timeline, real shipped apps, and two real engineering case studies, and believes this is verifiable production work, not a template.
-    FIRST VIEWPORT: Name + role statement top-left, no eyebrow above it; a horizontal five-era timeline in glass cards below; two case-study cards beneath that; footer links last.
+    STORY: A hiring manager sees two real engineering case studies with real evidence (screenshots, a workflow visual), every shipped app with real App Store links, and a personal account of the person behind the work, and believes this is verifiable production work, not a template.
+    FIRST VIEWPORT: Name + role statement top-left, no eyebrow above it; two case-study cards with thumbnails below; every shipped app beneath that, grouped by category; footer links last.
     FORM: Restrained Native Craft — synthesized after three rounds (seed key 189d83c7): "static/boring," then "provocative," then user-approved as the middle register.
     FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
   -->
@@ -78,6 +78,7 @@ const fullTitle = title === "Home" ? "Akshay Pimprikar — Lead iOS Engineer" : 
           href={item.href}
           class={Astro.url.pathname === item.href ? "active" : ""}
           aria-current={Astro.url.pathname === item.href ? "page" : undefined}
+          {...(item.external ? { target: "_blank", rel: "noopener" } : {})}
         >{item.label}</a>
       ))}
     </nav>
