@@ -8,10 +8,10 @@ Since May 2024 he has been building pragma, an open-source 8-agent iOS developme
 
 ## Pages
 
-- [Home](https://akshaypimprikar.dev/): overview, current case studies, every shipped app with real App Store links
-- [About Me](https://akshaypimprikar.dev/about): personal background and technical skills
-- [pragma](https://akshaypimprikar.dev/work/pragma): case study on the 8-agent iOS development pipeline
-- [FinanceTracker](https://akshaypimprikar.dev/work/financetracker): case study on the SwiftUI + SwiftData app pragma built
+- [Home](https://akshaypimprikardev.vercel.app/): overview, current case studies, every shipped app with real App Store links
+- [About Me](https://akshaypimprikardev.vercel.app/about): personal background and technical skills
+- [pragma](https://akshaypimprikardev.vercel.app/work/pragma): case study on the 8-agent iOS development pipeline
+- [FinanceTracker](https://akshaypimprikardev.vercel.app/work/financetracker): case study on the SwiftUI + SwiftData app pragma built
 
 ## Links
 
@@ -19,4 +19,4 @@ Since May 2024 he has been building pragma, an open-source 8-agent iOS developme
 - pragma repository: https://github.com/akshaypimprikar/pragma
 - FinanceTracker repository: https://github.com/akshaypimprikar/financetracker-ios
 - LinkedIn: https://linkedin.com/in/akshaypimprikar
-- Resume (PDF): https://akshaypimprikar.dev/Akshay-Pimprikar-Resume.pdf
+- Resume (PDF): https://akshaypimprikardev.vercel.app/Akshay-Pimprikar-Resume.pdf
