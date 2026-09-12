@@ -1,4 +1,5 @@
 ---
+import Analytics from '@vercel/analytics/astro';
 interface Props {
   title: string;
   description?: string;
@@ -59,6 +60,7 @@ const fullTitle = title === "Home" ? "Akshay Pimprikar — Lead iOS Engineer" : 
       "description": "Lead iOS Engineer with 12+ years shipping production mobile software for 1M-20M users across fintech, healthcare, and consumer. Building pragma, an 8-agent agentic iOS development pipeline.",
     },
   })} />
+  <Analytics />
 </head>
 <body>
   <!--
