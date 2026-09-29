@@ -38,8 +38,19 @@ const schema = {
     </div>
   </section>
 
-  <section class="session fade-in" style="animation-delay:.45s">
-    <img class="session-img" src="/case-thumbs/pragma.webp" alt="A pragma feature session: eight pipeline stages running from spec to release" loading="lazy" width="1600" height="900" />
+  <section class="demo fade-in" style="animation-delay:.45s">
+    <video class="demo-video" controls preload="none" playsinline poster="/video/pragma-demo-poster.jpg" width="1920" height="1080" aria-label="pragma demo video, 29 seconds, narrated">
+      <source src="/video/pragma-demo.mp4" type="video/mp4" />
+      <track kind="captions" src="/video/pragma-demo.vtt" srclang="en" label="English" default />
+    </video>
+    <details class="transcript">
+      <summary>Transcript</summary>
+      <p>Your agent can build an entire product now. But does any of it actually work? That's the part pragma handles.</p>
+      <p>You make two calls: the spec, and the plan.</p>
+      <p>Then the agent takes over. Tests first. Eleven gates. No pull request until they pass.</p>
+      <p>And if it gets stuck? It can't lower the bar to sneak through.</p>
+      <p>Pragma. Open source, and built for iOS teams shipping with agents.</p>
+    </details>
   </section>
 
   <section class="pipeline fade-in" style="animation-delay:.5s">
@@ -87,7 +98,7 @@ const schema = {
 </BaseLayout>
 
 <style>
-  .head, .session, .pipeline, .detail, .published{padding:0 6vw; max-width:1000px; margin:0 auto;}
+  .head, .demo, .pipeline, .detail, .published{padding:0 6vw; max-width:1000px; margin:0 auto;}
   .head{padding-top:9vh;}
   h1{font-size:clamp(36px,5.5vw,60px); font-weight:600; letter-spacing:-.02em; margin:14px 0 0;}
   .sub{font-size:15px; color:var(--dim); max-width:620px; margin:18px 0 0; line-height:1.6;}
@@ -95,8 +106,11 @@ const schema = {
   .links a{font-size:13px; color:var(--accent); text-decoration:none;}
   .links a:hover{text-decoration:underline;}
 
-  .session{margin-top:6vh;}
-  .session-img{width:100%; height:auto; border-radius:14px; border:1px solid var(--line); display:block;}
+  .demo{margin-top:6vh;}
+  .demo-video{width:100%; height:auto; border-radius:14px; border:1px solid var(--line); display:block; background:#0d1117;}
+  .transcript{margin-top:12px; font-size:13px; color:var(--dim);}
+  .transcript summary{cursor:pointer; color:var(--accent);}
+  .transcript p{margin:8px 0 0; line-height:1.6; max-width:620px;}
 
   h2{font-size:20px; font-weight:600; letter-spacing:-.01em; margin:0 0 22px;}
   .pipeline{margin-top:8vh;}
