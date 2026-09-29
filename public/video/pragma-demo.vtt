@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00.300 --> 00:06.570
+Your agent can build an entire product now. But does any of it actually work? That's the part pragma handles.
+
+00:08.145 --> 00:10.535
+You make two calls: the spec, and the plan.
+
+00:12.245 --> 00:17.770
+Then the agent takes over. Tests first. Eleven gates. No pull request until they pass.
+
+00:18.945 --> 00:21.975
+And if it gets stuck? It can't lower the bar to sneak through.
+
+00:24.350 --> 00:28.640
+Pragma. Open source, and built for iOS teams shipping with agents.
